@@ -32,19 +32,25 @@
 .welcome-buttons {
     font-size: 15px;
     font-weight: 700;
-    color: #FE6813;
+    color: #2C7BE5;
 }
 
 .welcome-span {
-    color: #FE6813;
+    color: #2C7BE5;
 }
 
 .login-button {
-    background-color: #FE6813 !important;
+    background-color: #2C7BE5 !important;
     border: none;
 }
 
 .form-checkbox:checked {
-    background-color: #FE6813;
+    background-color: #2C7BE5;
     border: none
+}
+
+.app-img {
+    max-width: 20%; 
+    max-height: 20%; 
+    height: auto; 
 }
