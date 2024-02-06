@@ -1,0 +1,50 @@
+
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+
+.bg-welcome {
+    background-color: #EDF2F9;
+}
+
+.card-body-welcome {
+    height: 400px;
+}
+
+.welcome-text {
+    font-weight: 900;
+    font-size: 42px;
+}
+
+.img-test {
+    background-image: url(../media/download.png);
+    width: 100%;
+    height: 100%;
+}
+
+.welcome-buttons {
+    font-size: 15px;
+    font-weight: 700;
+    color: #FE6813;
+}
+
+.welcome-span {
+    color: #FE6813;
+}
+
+.login-button {
+    background-color: #FE6813 !important;
+    border: none;
+}
+
+.form-checkbox:checked {
+    background-color: #FE6813;
+    border: none
+}
