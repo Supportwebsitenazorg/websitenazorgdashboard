@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DomainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +28,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/domeinen', function () {
-    return view('domeinen'); 
-})->name('domeinen')->middleware('auth'); 
+Route::get('/domeinen', [DomainController::class, 'index'])->name('domains.index')->middleware('auth');
+Route::post('/domeinen/toevoegen', [DomainController::class, 'add'])->name('domains.add')->middleware('auth');
 
 Route::get('/settings', function () {
     return view('settings');
 })->name('settings')->middleware('auth');
+
+

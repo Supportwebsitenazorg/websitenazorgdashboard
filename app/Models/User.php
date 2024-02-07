@@ -42,4 +42,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function domains()
+    {
+        // Use the actual table and key names according to your schema
+        return $this->belongsToMany('App\Models\Domain', 'domain_user', 'user_id', 'domain_id');
+    }
+    
+    
+    
+    
+
 }
