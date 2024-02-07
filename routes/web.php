@@ -27,9 +27,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/properties', function () {
-    return view('properties'); 
-})->name('properties')->middleware('auth'); 
+Route::get('/domeinen', function () {
+    return view('domeinen'); 
+})->name('domeinen')->middleware('auth'); 
 
 Route::get('/settings', function () {
     return view('settings');

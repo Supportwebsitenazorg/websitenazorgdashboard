@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Websitenazorg+</title>
+    <link rel="icon" href="{{ asset('Logo.png') }}">
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 <body class="antialiased">
@@ -14,7 +15,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
-                    <img class="app-img" src="{{ asset('/Logo2.png') }}" alt="Logo van Websitenazorg">
+                    <img class="app-img" src="{{ asset('/Logo.png') }}" alt="Logo van Websitenazorg">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -33,7 +34,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="/properties">{{ __('Properties') }}</a> 
+                                <a class="nav-link" href="/domeinen">{{ __('Domeinen') }}</a> 
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

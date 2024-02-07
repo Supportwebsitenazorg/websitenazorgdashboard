@@ -1,9 +1,12 @@
-<!DOCTYPE html>
-<html lang="nl">
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Websitenazorg | Welkom</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Websitenazorg+</title>
+    <link rel="icon" href="{{ asset('Logo.png') }}">
+    <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
@@ -15,7 +18,7 @@
             <div class="card shadow-lg">
                 <div class="card-body p-5">
                     <div class="text-center mb-4">
-                    <img src="{{ asset('/Logo2.png') }}" alt="Logo van Websitenazorg">
+                    <img src="{{ asset('/Logo.png') }}" alt="Logo van Websitenazorg">
                         <h1 class="h3 mb-3 welcome-text pt-5">Welkom</h1>
                         <h5>Log in bij <span class="welcome-span" >Websitenazorg+</span> om toegang te krijgen tot het dashboard.</h5>
 
