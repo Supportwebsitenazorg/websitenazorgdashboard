@@ -37,4 +37,7 @@ return [
     'domains' => 'Domeinen',
     'settings' => 'Instellingen',
     'logout' => 'Uitloggen',
+    'reset_password' => 'Wachtwoord Resetten',
+    'email' => 'E-mail',
+    'send_password_reset_link' => 'Stuur Wachtwoord Reset Link',
 ];

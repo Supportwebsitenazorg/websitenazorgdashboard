@@ -10,7 +10,7 @@ return [
     'user_email' => 'User Email',
     'domain_name' => 'Domain Name',
     'add_domain' => 'Add Domain',
-    'all_domains' => 'All Domains',
+    'all_domains' => 'All Assigned Domains',
     'assigned_to' => 'Assigned to',
     'no_domains_added' => 'No domains have been added to users.',
     'my_domains' => 'My Domains',
@@ -37,4 +37,7 @@ return [
     'domains' => 'Domains',
     'settings' => 'Settings',
     'logout' => 'Logout',
+    'reset_password' => 'Reset Password',
+    'email' => 'Email',
+    'send_password_reset_link' => 'Send Password Reset Link',
 ];

@@ -5,11 +5,11 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">{{ __('Profile Information') }}</div>
+                <div class="card-header">{{ __('messages.profile_information') }}</div> 
                 <div class="card-body">
-                    <p><strong>{{ __('Name') }}:</strong> {{ Auth::user()->name }}</p>
-                    <p><strong>{{ __('Email') }}:</strong> {{ Auth::user()->email }}</p>
-                    <p><strong>{{ __('Member Since') }}:</strong> {{ Auth::user()->created_at->format('M d, Y') }}</p>
+                    <p><strong>{{ __('messages.name') }}:</strong> {{ Auth::user()->name }}</p> 
+                    <p><strong>{{ __('messages.email') }}:</strong> {{ Auth::user()->email }}</p> 
+                    <p><strong>{{ __('messages.member_since') }}:</strong> {{ Auth::user()->created_at->format('M d, Y') }}</p>
                 </div>
             </div>
         </div>
