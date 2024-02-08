@@ -39,6 +39,11 @@ Route::get('/settings', function () {
 Route::get('language/{lang}', [App\Http\Controllers\LanguageController::class, 'switchLang'])
      ->name('language.switch');
 
+Route::get('password/reset', 'App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')
+     ->name('password.request');
+
+
+
 
 
 

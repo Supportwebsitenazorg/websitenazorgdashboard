@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Websitenazorg | Inloggen</title>
+    <title>@lang('messages.login_title')</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
@@ -15,14 +15,14 @@
             <div class="card shadow-lg">
                 <div class="card-body p-5">
                     <div class="text-center mb-4">
-                        <h1 class="h3 mb-3 welcome-text">Inloggen</h1>
-                        <h5>Inloggen voor <span class="welcome-span">direct</span> toegang.</h5>
+                        <h1 class="h3 mb-3 welcome-text">@lang('messages.login')</h1>
+                        <h5>@lang('messages.login_access')</h5>
                     </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="mb-3">
-                            <label for="email" class="form-label">E-mailadres</label>
+                            <label for="email" class="form-label">@lang('messages.email')</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="password" class="form-label">Wachtwoord</label>
+                            <label for="password" class="form-label">@lang('messages.password')</label>
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -45,14 +45,14 @@
                             <div class="form-check">
                                 <input class="form-check-input form-checkbox" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                 <label class="form-check-label" for="remember">
-                                    Onthoud mij
+                                    @lang('messages.remember_me')
                                 </label>
                             </div>
                         </div>
 
                         <div class="mb-0">
                             <button type="submit" class="btn btn-primary login-button">
-                                Inloggen
+                                @lang('messages.login')
                             </button>
                         </div>
                     </form>
@@ -60,10 +60,10 @@
                 <div class="card-footer">
                     @if (Route::has('password.request'))
                         <a class="btn welcome-buttons" href="{{ route('password.request') }}">
-                            Wachtwoord vergeten?
+                            @lang('messages.forgot_password')
                         </a>
                     @endif
-                    <a class="btn welcome-buttons" href="{{ route('register') }}">Registreren</a>
+                    <a class="btn welcome-buttons" href="{{ route('register') }}">@lang('messages.register')</a>
                 </div>
             </div>
         </div>
