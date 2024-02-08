@@ -12,9 +12,12 @@ class DomainController extends Controller
     public function index()
     {
         $users = User::all();
-        $domains = Auth::user()->domains ?? collect();
-        return view('domeinen', compact('domains', 'users'));
+    
+        $allDomains = Domain::whereHas('users')->with('users')->get();
+    
+        return view('domeinen', compact('users', 'allDomains'));
     }
+    
     
     public function assign(Request $request)
     {

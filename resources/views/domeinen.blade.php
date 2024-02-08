@@ -5,9 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Domeinen toevoegen') }}</div>
+                <div class="card-header">{{ __('Domeinen') }}</div>
                 <div class="card-body">
-                    @if (Auth::user()->role === 'admin') {{-- Check if the user is an admin --}}
+                    @if (Auth::user()->role === 'admin')
+                        {{-- Admin's form to assign domains to users --}}
                         <form method="POST" action="{{ route('domains.assign') }}">
                             @csrf
                             <div class="form-group">
@@ -25,16 +26,28 @@
                             <button type="submit" class="btn btn-primary">{{ __('Voeg Domein Toe') }}</button>
                         </form>
                         <hr>
-                    @endif
-                    <h3>Mijn Domeinen:</h3>
-                    @if (Auth::user()->domains->isNotEmpty())
-                        <ul>
-                            @foreach (Auth::user()->domains as $domain)
-                                <li>{{ $domain->domain }}</li> {{-- Make sure 'domain' is the correct field name --}}
-                            @endforeach
-                        </ul>
+                        <h3>Alle Domeinen:</h3>
+                        @if (isset($allDomains) && $allDomains->isNotEmpty())
+                            <ul>
+                                @foreach ($allDomains as $domain)
+                                    <li>{{ $domain->domain }} - {{ $domain->users->pluck('email')->join(', ') }}</li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <p>Er zijn nog geen domeinen toegevoegd aan gebruikers.</p>
+                        @endif
                     @else
-                        <p>Je hebt nog geen domeinen toegevoegd.</p>
+                        {{-- Non-admin users' list of their own domains --}}
+                        <h3>Mijn Domeinen:</h3>
+                        @if (Auth::user()->domains->isNotEmpty())
+                            <ul>
+                                @foreach (Auth::user()->domains as $domain)
+                                    <li>{{ $domain->domain }}</li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <p>Je hebt nog geen domeinen toegevoegd.</p>
+                        @endif
                     @endif
                 </div>
             </div>
