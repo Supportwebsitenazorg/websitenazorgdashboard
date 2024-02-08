@@ -30,6 +30,7 @@ Route::get('/', function () {
 
 Route::get('/domeinen', [DomainController::class, 'index'])->name('domains.index')->middleware('auth');
 Route::post('/domeinen/toevoegen', [DomainController::class, 'add'])->name('domains.add')->middleware('auth');
+Route::post('/domeinen/assign', [DomainController::class, 'assign'])->name('domains.assign')->middleware('auth', 'can:assign-domains');
 
 Route::get('/settings', function () {
     return view('settings');
