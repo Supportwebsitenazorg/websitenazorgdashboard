@@ -36,4 +36,9 @@ Route::get('/settings', function () {
     return view('settings');
 })->name('settings')->middleware('auth');
 
+Route::get('language/{lang}', [App\Http\Controllers\LanguageController::class, 'switchLang'])
+     ->name('language.switch');
+
+
+
 
