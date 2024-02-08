@@ -9,7 +9,7 @@ class Domain extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'PropertyID'; // Set the primary key to the correct column name
+    protected $primaryKey = 'PropertyID';
     public $incrementing = false;
 
     public function users()
