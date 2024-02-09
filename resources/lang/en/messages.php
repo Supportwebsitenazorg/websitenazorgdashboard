@@ -45,9 +45,9 @@ return [
     'all_organizations' => 'All Organizations',
     'no_organizations_added' => 'No organizations have been added to users yet.',
     'my_organizations' => 'My Organizations',
-    'add_organization' => 'Add Organization',
+    'add_organization' => 'Add Organization Assigned To',
     'assign_organization' => 'Assign Organization',
     'organization_added' => 'Organization added to the user.',
     'domains_and_organizations' => 'Domains and Organizations',
-    'all_domains_and_organizations' => 'All Domains and Organizations',
+    'all_domains_and_organizations' => 'All Domains Assigned To',
 ];

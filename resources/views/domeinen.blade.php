@@ -9,7 +9,6 @@
 
                 <div class="card-body">
                     @if (Auth::user()->role === 'admin')
-                        <!-- Admin specific content -->
                         <form method="POST" action="{{ route('domains.assign') }}">
                             @csrf
                             <div class="form-group">
@@ -58,14 +57,17 @@
                         @if (isset($allOrganizations) && $allOrganizations->isNotEmpty())
                             <ul>
                                 @foreach ($allOrganizations as $organization)
-                                    <li>{{ $organization->organization }} - @lang('messages.assigned_to') {{ $organization->users->pluck('email')->join(', ') }}</li>
+                                    <li>{{ $organization->organization }} - @lang('messages.assigned_to')
+                                        @foreach ($organization->users as $user)
+                                            {{ $user->email }};
+                                        @endforeach
+                                    </li>
                                 @endforeach
                             </ul>
                         @else
                             <p>@lang('messages.no_organizations_added')</p>
                         @endif
                     @else
-                        <!-- Orgadmin and regular user content -->
                         <h3>@lang('messages.my_domains')</h3>
                         @if (Auth::user()->role === 'orgadmin' && isset($allDomains) && $allDomains->isNotEmpty())
                             <ul>
@@ -82,7 +84,6 @@
                         @else
                             <p>@lang('messages.no_domains_added')</p>
                         @endif
-                        
                         <h3>@lang('messages.my_organizations')</h3>
                         @if (Auth::user()->organizations->isNotEmpty())
                             <ul>
