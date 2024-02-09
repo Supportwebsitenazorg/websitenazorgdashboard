@@ -15,21 +15,23 @@ class DomainController extends Controller
     {
         $user = Auth::user();
         $users = User::where('role', '!=', 'admin')->get();
-
-
+    
         if ($user->role === 'admin') {
             $allDomains = Domain::with('users')->get();
             $allOrganizations = Organization::with('users')->get();
         } else {
-            $allDomains = Domain::whereHas('organization', function ($query) use ($user) {
-                $query->whereIn('OrganizationID', $user->organizations->pluck('OrganizationID'));
+            $allDomains = Domain::whereHas('users', function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            })->orWhereHas('organization.users', function ($query) use ($user) {
+                $query->where('user_id', $user->id);
             })->with('users')->get();
-
+    
             $allOrganizations = $user->organizations;
         }
-
+    
         return view('domeinen', compact('users', 'allDomains', 'allOrganizations'));
     }
+    
 
 
     public function assign(Request $request)

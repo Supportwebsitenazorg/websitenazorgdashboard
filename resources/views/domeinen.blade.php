@@ -86,16 +86,14 @@
                         </div>
                     @else
                         <h3>@lang('messages.my_domains')</h3>
-                        @if (Auth::user()->role === 'orgadmin' && isset($allDomains) && $allDomains->isNotEmpty())
+                        @if (isset($allDomains) && $allDomains->isNotEmpty())
                             <ul>
                                 @foreach ($allDomains as $domain)
-                                    <li>{{ $domain->domain }}</li>
-                                @endforeach
-                            </ul>
-                        @elseif (Auth::user()->domains->isNotEmpty())
-                            <ul>
-                                @foreach (Auth::user()->domains as $domain)
-                                    <li>{{ $domain->domain }}</li>
+                                    <li>
+                                        <a href="{{ route('monitoring.show', ['domain' => $domain->domain]) }}">
+                                            {{ $domain->domain }}
+                                        </a>
+                                    </li>
                                 @endforeach
                             </ul>
                         @else
