@@ -14,7 +14,8 @@ class DomainController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $users = User::all();
+        $users = User::where('role', '!=', 'admin')->get();
+
 
         if ($user->role === 'admin') {
             $allDomains = Domain::with('users')->get();
