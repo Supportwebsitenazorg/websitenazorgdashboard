@@ -43,76 +43,79 @@
                                 <button type="submit" class="btn btn-primary mt-1">@lang('messages.add_organization')</button>
                             </form>
                         </div>
-                            <hr>
-                            <h3>
-                                <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#domainsCollapse" aria-expanded="false" aria-controls="domainsCollapse">
-                                    @lang('messages.all_domains_assigned')
-                                </button>
-                            </h3>
-                            <div class="collapse" id="domainsCollapse">
-                                @if (isset($allDomains) && $allDomains->isNotEmpty())
-                                    <ul>
-                                        @foreach ($allDomains as $domain)
-                                            <li>
-                                                <a href="{{ route('monitoring.show', ['domain' => $domain->domain]) }}">
-                                                    {{ $domain->domain }}
-                                                </a> - @lang('messages.assigned_to') {{ $domain->users->pluck('email')->join(', ') }}
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                @else
-                                    <p>@lang('messages.no_domains_added')</p>
-                                @endif
-                            </div>
-                            <h3>
-                                <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#organizationsCollapse" aria-expanded="false" aria-controls="organizationsCollapse">
-                                    @lang('messages.all_organizations')
-                                </button>
-                            </h3>
-                            <div class="collapse" id="organizationsCollapse">
-                                @if (isset($allOrganizations) && $allOrganizations->isNotEmpty())
-                                    <ul>
-                                        @foreach ($allOrganizations as $organization)
-                                            <li>{{ $organization->organization }} - @lang('messages.assigned_to')
-                                                @foreach ($organization->users as $user)
-                                                    {{ $user->email }};
-                                                @endforeach
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                @else
-                                    <p>@lang('messages.no_organizations_added')</p>
-                                @endif
-                            </div>
-                        @else
-                            <h3>@lang('messages.my_domains')</h3>
-                            @if (Auth::user()->domains->isNotEmpty())
+                        <hr>
+                        <h3>
+                            <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#domainsCollapse" aria-expanded="false" aria-controls="domainsCollapse">
+                                @lang('messages.all_domains_assigned')
+                            </button>
+                        </h3>
+                        <div class="collapse" id="domainsCollapse">
+                            @if (isset($allDomains) && $allDomains->isNotEmpty())
                                 <ul>
-                                    @foreach (Auth::user()->domains as $domain)
+                                    @foreach ($allDomains as $domain)
                                         <li>
                                             <a href="{{ route('monitoring.show', ['domain' => $domain->domain]) }}">
                                                 {{ $domain->domain }}
-                                            </a>
+                                            </a> - @lang('messages.assigned_to') {{ $domain->users->pluck('email')->join(', ') }}
                                         </li>
                                     @endforeach
                                 </ul>
                             @else
                                 <p>@lang('messages.no_domains_added')</p>
                             @endif
-                            <h3>@lang('messages.my_organizations')</h3>
-                            @if (Auth::user()->organizations->isNotEmpty())
+                        </div>
+                        <h3>
+                            <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#organizationsCollapse" aria-expanded="false" aria-controls="organizationsCollapse">
+                                @lang('messages.all_organizations')
+                            </button>
+                        </h3>
+                        <div class="collapse" id="organizationsCollapse">
+                            @if (isset($allOrganizations) && $allOrganizations->isNotEmpty())
                                 <ul>
-                                    @foreach (Auth::user()->organizations as $organization)
-                                        <li>{{ $organization->organization }}</li>
+                                    @foreach ($allOrganizations as $organization)
+                                        <li>{{ $organization->organization }} - @lang('messages.assigned_to')
+                                            @foreach ($organization->users as $user)
+                                                {{ $user->email }};
+                                            @endforeach
+                                        </li>
                                     @endforeach
                                 </ul>
                             @else
                                 <p>@lang('messages.no_organizations_added')</p>
                             @endif
+                        </div>
+                    @else
+                        <h3>@lang('messages.my_domains')</h3>
+                        @if (Auth::user()->role === 'orgadmin' && isset($allDomains) && $allDomains->isNotEmpty())
+                            <ul>
+                                @foreach ($allDomains as $domain)
+                                    <li>{{ $domain->domain }}</li>
+                                @endforeach
+                            </ul>
+                        @elseif (Auth::user()->domains->isNotEmpty())
+                            <ul>
+                                @foreach (Auth::user()->domains as $domain)
+                                    <li>{{ $domain->domain }}</li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <p>@lang('messages.no_domains_added')</p>
                         @endif
-                    </div>
+                        
+                        <h3>@lang('messages.my_organizations')</h3>
+                        @if (Auth::user()->organizations->isNotEmpty())
+                            <ul>
+                                @foreach (Auth::user()->organizations as $organization)
+                                    <li>{{ $organization->organization }}</li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <p>@lang('messages.no_organizations_added')</p>
+                        @endif
+                    @endif
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endsection
