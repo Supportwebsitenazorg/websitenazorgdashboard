@@ -43,11 +43,15 @@
                             <button type="submit" class="btn btn-primary">@lang('messages.add_organization')</button>
                         </form>
                         <hr>
-                        <h3>@lang('messages.all_domains_and_organizations')</h3>
+                        <h3>@lang('messages.all_domains_assigned')</h3>
                         @if (isset($allDomains) && $allDomains->isNotEmpty())
                             <ul>
                                 @foreach ($allDomains as $domain)
-                                    <li>{{ $domain->domain }} - @lang('messages.assigned_to') {{ $domain->users->pluck('email')->join(', ') }}</li>
+                                    <li>
+                                        <a href="{{ route('monitoring.show', ['domain' => $domain->domain]) }}">
+                                            {{ $domain->domain }}
+                                        </a> - @lang('messages.assigned_to') {{ $domain->users->pluck('email')->join(', ') }}
+                                    </li>
                                 @endforeach
                             </ul>
                         @else
@@ -69,16 +73,14 @@
                         @endif
                     @else
                         <h3>@lang('messages.my_domains')</h3>
-                        @if (Auth::user()->role === 'orgadmin' && isset($allDomains) && $allDomains->isNotEmpty())
-                            <ul>
-                                @foreach ($allDomains as $domain)
-                                    <li>{{ $domain->domain }}</li>
-                                @endforeach
-                            </ul>
-                        @elseif (Auth::user()->domains->isNotEmpty())
+                        @if (Auth::user()->domains->isNotEmpty())
                             <ul>
                                 @foreach (Auth::user()->domains as $domain)
-                                    <li>{{ $domain->domain }}</li>
+                                    <li>
+                                        <a href="{{ route('monitoring.show', ['domain' => $domain->domain]) }}">
+                                            {{ $domain->domain }}
+                                        </a>
+                                    </li>
                                 @endforeach
                             </ul>
                         @else

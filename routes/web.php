@@ -37,7 +37,8 @@ Route::middleware(['can:is-orgadmin'])->group(function () {
     // moet nog worden ingevuld
 });
 
-
+Route::get('/monitoring/{domain}', [App\Http\Controllers\MonitoringController::class, 'show'])
+     ->name('monitoring.show')->middleware('auth');
 
 Route::get('/settings', function () {
     return view('settings');
