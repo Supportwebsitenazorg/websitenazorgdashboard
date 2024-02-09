@@ -8,7 +8,6 @@
                 <div class="card-header">@lang('messages.domains_and_organizations')</div>
                 <div class="card-body">
                     @if (Auth::user()->role === 'admin')
-                        {{-- Admin's form to assign domains to users --}}
                         <form method="POST" action="{{ route('domains.assign') }}">
                             @csrf
                             <div class="form-group">
@@ -26,7 +25,6 @@
                             <button type="submit" class="btn btn-primary">@lang('messages.add_domain')</button>
                         </form>
                         <hr>
-                        {{-- Admin's form to assign organizations to users --}}
                         <form method="POST" action="{{ route('organizations.assign') }}">
                             @csrf
                             <div class="form-group">
@@ -65,7 +63,6 @@
                             <p>@lang('messages.no_organizations_added')</p>
                         @endif
                     @else
-                        {{-- Non-admin users' list of their own domains --}}
                         <h3>@lang('messages.my_domains')</h3>
                         @if (Auth::user()->domains->isNotEmpty())
                             <ul>
@@ -76,7 +73,6 @@
                         @else
                             <p>@lang('messages.no_domains_added')</p>
                         @endif
-                        {{-- Non-admin users' list of their own organizations --}}
                         <h3>@lang('messages.my_organizations')</h3>
                         @if (Auth::user()->organizations->isNotEmpty())
                             <ul>
