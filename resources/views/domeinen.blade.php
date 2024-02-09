@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">@lang('messages.domains_and_organizations')</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">@lang('messages.domains_and_organizations')</div>
 
-                    <div class="card-body">
-                        @if (Auth::user()->role === 'admin')
-                            <form method="POST" action="{{ route('domains.assign') }}">
+                <div class="card-body">
+                    @if (Auth::user()->role === 'admin')
+                        <div class="d-flex justify-content-between flex-wrap">
+                            <form method="POST" action="{{ route('domains.assign') }}" class="me-2 flex-grow-1">
                                 @csrf
                                 <div class="form-group">
                                     <label for="user_email">@lang('messages.user_email')</label>
@@ -25,8 +26,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-1">@lang('messages.add_domain')</button>
                             </form>
-                            <hr>
-                            <form method="POST" action="{{ route('organizations.assign') }}">
+                            <form method="POST" action="{{ route('organizations.assign') }}" class="ms-2 flex-grow-1">
                                 @csrf
                                 <div class="form-group">
                                     <label for="user_email">@lang('messages.user_email')</label>
@@ -42,6 +42,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-1">@lang('messages.add_organization')</button>
                             </form>
+                        </div>
                             <hr>
                             <h3>
                                 <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#domainsCollapse" aria-expanded="false" aria-controls="domainsCollapse">
