@@ -33,6 +33,11 @@ Route::post('/domeinen/assign', [DomainController::class, 'assign'])->name('doma
 
 Route::post('/organizations/assign', [DomainController::class, 'assignOrganization'])->name('organizations.assign')->middleware('auth', 'can:assign-organizations');
 
+Route::middleware(['can:is-orgadmin'])->group(function () {
+    // moet nog worden ingevuld
+});
+
+
 
 Route::get('/settings', function () {
     return view('settings');
@@ -43,11 +48,3 @@ Route::get('language/{lang}', [App\Http\Controllers\LanguageController::class, '
 
 Route::get('password/reset', 'App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')
      ->name('password.request');
-
-     
-
-
-
-
-
-

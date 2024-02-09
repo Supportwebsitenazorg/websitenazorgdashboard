@@ -6,8 +6,10 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">@lang('messages.domains_and_organizations')</div>
+
                 <div class="card-body">
                     @if (Auth::user()->role === 'admin')
+                        <!-- Admin specific content -->
                         <form method="POST" action="{{ route('domains.assign') }}">
                             @csrf
                             <div class="form-group">
@@ -63,8 +65,15 @@
                             <p>@lang('messages.no_organizations_added')</p>
                         @endif
                     @else
+                        <!-- Orgadmin and regular user content -->
                         <h3>@lang('messages.my_domains')</h3>
-                        @if (Auth::user()->domains->isNotEmpty())
+                        @if (Auth::user()->role === 'orgadmin' && isset($allDomains) && $allDomains->isNotEmpty())
+                            <ul>
+                                @foreach ($allDomains as $domain)
+                                    <li>{{ $domain->domain }}</li>
+                                @endforeach
+                            </ul>
+                        @elseif (Auth::user()->domains->isNotEmpty())
                             <ul>
                                 @foreach (Auth::user()->domains as $domain)
                                     <li>{{ $domain->domain }}</li>
@@ -73,6 +82,7 @@
                         @else
                             <p>@lang('messages.no_domains_added')</p>
                         @endif
+                        
                         <h3>@lang('messages.my_organizations')</h3>
                         @if (Auth::user()->organizations->isNotEmpty())
                             <ul>

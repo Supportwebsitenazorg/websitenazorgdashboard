@@ -7,14 +7,28 @@ use App\Models\Domain;
 use App\Models\Organization;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DomainController extends Controller
 {
     public function index()
     {
+        $user = Auth::user();
         $users = User::all();
-        $allDomains = Domain::whereHas('users')->with('users')->get();
-        $allOrganizations = Organization::whereHas('users')->with('users')->get();
+    
+        if ($user->role === 'admin') {
+            // Admins see all domains.
+            $allDomains = Domain::with('users')->get();
+        } elseif ($user->role === 'orgadmin') {
+            // Orgadmins see all domains associated with their organizations.
+            $organizationIds = $user->organizations->pluck('OrganizationID');
+            $allDomains = Domain::whereIn('OrganizationID', $organizationIds)->with('users')->get();
+        } else {
+            // Regular users see only domains they are directly associated with.
+            $allDomains = $user->domains()->with('users')->get();
+        }
+    
+        $allOrganizations = $user->organizations()->with('users')->get();
     
         return view('domeinen', compact('users', 'allDomains', 'allOrganizations'));
     }
@@ -50,10 +64,21 @@ class DomainController extends Controller
         
         $organization = Organization::firstOrCreate(['organization' => $organizationName]);
 
-        if (!$user->organizations()->where('organization', $organizationName)->exists()) {
-            $user->organizations()->attach($organization->OrganizationID);
-        }
+        // Start a transaction to ensure data consistency
+        DB::beginTransaction();
+        try {
+            if (!$user->organizations()->where('organization', $organizationName)->exists()) {
+                $user->organizations()->attach($organization->OrganizationID);
+                // Now call the method to update the role
+                $user->assignOrgAdminRole();
+            }
 
-        return back()->with('success', __('Organization added to the user.'));
+            DB::commit();
+            return back()->with('success', __('Organization added to the user.'));
+        } catch (\Exception $e) {
+            DB::rollBack();
+            // Handle the exception as needed
+            return back()->with('error', __('An error occurred while assigning the organization.'));
+        }
     }
 }
