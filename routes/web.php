@@ -52,4 +52,5 @@ Route::get('password/reset', 'App\Http\Controllers\Auth\ForgotPasswordController
 
 Route::post('/remove-user-from-domain', [DomainController::class, 'removeUserFromDomain'])->middleware('auth', 'can:assign-domains');
 Route::post('/remove-user-from-organization', [DomainController::class, 'removeUserFromOrganization'])->middleware('auth', 'can:assign-organizations');
-     
+
+Route::delete('/user/delete', [App\Http\Controllers\UserController::class, 'delete'])->name('user.delete')->middleware('auth');

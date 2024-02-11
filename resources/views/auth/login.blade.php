@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@lang('messages.login_title')</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
-    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body class="antialiased">
 <div class="container-fluid">
@@ -70,9 +70,5 @@
     </div>
 
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-rfqp7rWB6J3z5IXJyI5nLEHv5f3ue9f7/4z+b5pi5f5VA+o2m0v9yk7B5U5b5cF5w1"
-        crossorigin="anonymous"></script>
 </body>
 </html>

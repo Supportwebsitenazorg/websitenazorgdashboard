@@ -53,4 +53,9 @@ return [
     'domains_and_organizations' => 'Domeinen en Organisaties',
     'all_domains_assigned' => 'Alle domeinen',
     'monitoring_dashboard_for' => 'Monitoringdashboard voor :domain',
+    'remove_account' => 'Account Verwijderen',
+    'remove_account_warning' => 'Om de verwijdering van het account te bevestigen, voer uw naam exact in zoals deze in uw profiel verschijnt:',
+    'enter_your_name' => 'Vul uw naam in...',
+    'account_deletion_confirmation' => 'De ingevoerde naam komt niet overeen met uw profielnaam. Probeer het opnieuw.',
+    'account_deleted_success' => 'Uw account is succesvol verwijderd.',
 ];
