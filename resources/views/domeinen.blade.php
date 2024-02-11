@@ -125,37 +125,36 @@
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.removable-user').forEach(function(element) {
         element.addEventListener('click', function() {
-            if(confirm('Are you sure you want to remove ' + this.getAttribute('data-email') + '?')) {
-                var url = this.getAttribute('data-domain') 
-                            ? '/remove-user-from-domain' 
-                            : '/remove-user-from-organization';
-                var data = {
-                    email: this.getAttribute('data-email'),
-                    domain: this.getAttribute('data-domain'),
-                    organization: this.getAttribute('data-organization'),
-                    _token: '{{ csrf_token() }}'
-                };
-                
-                fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if(data.success) {
-                        this.remove();
-                    } else {
-                        alert('Error: ' + data.message);
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-            }
+            var url = this.getAttribute('data-domain') 
+                        ? '/remove-user-from-domain' 
+                        : '/remove-user-from-organization';
+            var data = {
+                email: this.getAttribute('data-email'),
+                domain: this.getAttribute('data-domain'),
+                organization: this.getAttribute('data-organization'),
+                _token: '{{ csrf_token() }}'
+            };
+            
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    this.remove();
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
         });
     });
 });
 </script>
+
