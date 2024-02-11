@@ -79,4 +79,31 @@ class DomainController extends Controller
             return back()->with('error', __('An error occurred while assigning the organization.'));
         }
     }
+
+    public function removeUserFromDomain(Request $request)
+{
+    $user = User::where('email', $request->email)->first();
+    $domain = Domain::where('domain', $request->domain)->first();
+    
+    if($user && $domain) {
+        $domain->users()->detach($user->id);
+        return response()->json(['success' => true]);
+    }
+    
+    return response()->json(['success' => false, 'message' => 'Invalid user or domain']);
+}
+
+public function removeUserFromOrganization(Request $request)
+{
+    $user = User::where('email', $request->email)->first();
+    $organization = Organization::where('organization', $request->organization)->first();
+    
+    if($user && $organization) {
+        $organization->users()->detach($user->id);
+        return response()->json(['success' => true]);
+    }
+    
+    return response()->json(['success' => false, 'message' => 'Invalid user or organization']);
+}
+
 }

@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'english' => 'Engels',
+    'dutch' => 'Nederlands',
     'welcome' => 'Welkom',
     'login' => 'Inloggen',
     'register' => 'Registreren',

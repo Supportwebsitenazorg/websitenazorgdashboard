@@ -52,13 +52,16 @@
                         <div class="collapse" id="domainsCollapse">
                             @if (isset($allDomains) && $allDomains->isNotEmpty())
                                 <ul>
-                                    @foreach ($allDomains as $domain)
-                                        <li>
-                                            <a href="{{ route('monitoring.show', ['domain' => $domain->domain]) }}">
-                                                {{ $domain->domain }}
-                                            </a> - @lang('messages.assigned_to') {{ $domain->users->pluck('email')->join(', ') }}
-                                        </li>
-                                    @endforeach
+                                @foreach ($allDomains as $domain)
+                                    <li>
+                                        <a href="{{ route('monitoring.show', ['domain' => $domain->domain]) }}">
+                                            {{ $domain->domain }}
+                                        </a> - @lang('messages.assigned_to') 
+                                        @foreach ($domain->users as $user)
+                                            <span class="removable-user" data-domain="{{ $domain->domain }}" data-email="{{ $user->email }}">{{ $user->email }}</span>
+                                        @endforeach
+                                    </li>
+                                @endforeach
                                 </ul>
                             @else
                                 <p>@lang('messages.no_domains_added')</p>
@@ -72,13 +75,13 @@
                         <div class="collapse" id="organizationsCollapse">
                             @if (isset($allOrganizations) && $allOrganizations->isNotEmpty())
                                 <ul>
-                                    @foreach ($allOrganizations as $organization)
-                                        <li>{{ $organization->organization }} - @lang('messages.assigned_to')
-                                            @foreach ($organization->users as $user)
-                                                {{ $user->email }};
-                                            @endforeach
-                                        </li>
-                                    @endforeach
+                                @foreach ($allOrganizations as $organization)
+                                    <li>{{ $organization->organization }} - @lang('messages.assigned_to')
+                                        @foreach ($organization->users as $user)
+                                            <span class="removable-user" data-organization="{{ $organization->organization }}" data-email="{{ $user->email }}">{{ $user->email }}</span>
+                                        @endforeach
+                                    </li>
+                                @endforeach
                                 </ul>
                             @else
                                 <p>@lang('messages.no_organizations_added')</p>
@@ -117,3 +120,42 @@
     </div>
 </div>
 @endsection
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.removable-user').forEach(function(element) {
+        element.addEventListener('click', function() {
+            if(confirm('Are you sure you want to remove ' + this.getAttribute('data-email') + '?')) {
+                var url = this.getAttribute('data-domain') 
+                            ? '/remove-user-from-domain' 
+                            : '/remove-user-from-organization';
+                var data = {
+                    email: this.getAttribute('data-email'),
+                    domain: this.getAttribute('data-domain'),
+                    organization: this.getAttribute('data-organization'),
+                    _token: '{{ csrf_token() }}'
+                };
+                
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.success) {
+                        this.remove();
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            }
+        });
+    });
+});
+</script>

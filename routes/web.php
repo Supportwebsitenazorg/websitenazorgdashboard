@@ -49,3 +49,7 @@ Route::get('language/{lang}', [App\Http\Controllers\LanguageController::class, '
 
 Route::get('password/reset', 'App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')
      ->name('password.request');
+
+Route::post('/remove-user-from-domain', [DomainController::class, 'removeUserFromDomain'])->middleware('auth', 'can:assign-domains');
+Route::post('/remove-user-from-organization', [DomainController::class, 'removeUserFromOrganization'])->middleware('auth', 'can:assign-organizations');
+     

@@ -22,8 +22,8 @@
                             <h5>@lang('messages.login_message')</h5>
                             <div class="language-switcher">
                                 <select onchange="changeLanguage(this)">
-                                    <option value="en"{{ app()->getLocale() == 'en' ? ' selected' : '' }}>@lang('ENGLISH')</option>
-                                    <option value="nl"{{ app()->getLocale() == 'nl' ? ' selected' : '' }}>@lang('DUTCH')</option>
+                                    <option value="en"{{ app()->getLocale() == 'en' ? ' selected' : '' }}>@lang('messages.english')</option>
+                                    <option value="nl"{{ app()->getLocale() == 'nl' ? ' selected' : '' }}>@lang('messages.dutch')</option>
                                 </select>
                             </div>
                         </div>
