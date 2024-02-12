@@ -91,7 +91,7 @@
                     @if (Auth::user()->role === 'orgadmin')
                         <div class="form-group">
                             <label for="select_organization">@lang('messages.select_organization')</label>
-                            <select class="form-control" id="select_organization" onchange="showOrganizationDomains(this)">
+                            <select class="form-control organization-select" id="select_organization">
                                 <option value="">@lang('messages.select_an_organization')</option>
                                 @foreach (Auth::user()->organizations as $organization)
                                     <option value="{{ $organization->OrganizationID }}">{{ $organization->organization }}</option>
