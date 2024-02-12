@@ -39,51 +39,61 @@ class DomainController extends Controller
 }
 
 
-    public function assign(Request $request)
-    {
-        $request->validate([
-            'user_email' => 'required|exists:users,email',
-            'domain_name' => 'required|string|max:255',
-        ]);
+public function assign(Request $request)
+{
+    $request->validate([
+        'user_email' => 'required|exists:users,email',
+        'domain_name' => 'required|string|max:255',
+    ]);
 
-        $user = User::where('email', $request->user_email)->firstOrFail();
-        $domainName = $request->input('domain_name');
+    $user = User::where('email', $request->user_email)->firstOrFail();
+    $domainName = $request->input('domain_name');
 
-        $domain = Domain::firstOrCreate(['domain' => $domainName]);
+    $domain = Domain::where('domain', $domainName)->first();
 
-        if (!$user->domains()->where('domain', $domainName)->exists()) {
-            $user->domains()->attach($domain->PropertyID);
-        }
-
-        return back()->with('success', __('Domain added to the user.'));
+    if (!$domain) {
+        return back()->with('error', __('The domain does not exist.'));
     }
 
-    public function assignOrganization(Request $request)
-    {
-        $request->validate([
-            'user_email' => 'required|exists:users,email',
-            'organization_name' => 'required|string|max:255',
-        ]);
-
-        $user = User::where('email', $request->user_email)->firstOrFail();
-        $organizationName = $request->input('organization_name');
-
-        $organization = Organization::firstOrCreate(['organization' => $organizationName]);
-
-        DB::beginTransaction();
-        try {
-            if (!$user->organizations()->where('organization', $organizationName)->exists()) {
-                $user->organizations()->attach($organization->OrganizationID);
-                $user->assignOrgAdminRole();
-            }
-
-            DB::commit();
-            return back()->with('success', __('Organization added to the user.'));
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return back()->with('error', __('An error occurred while assigning the organization.'));
-        }
+    if (!$user->domains()->where('domain', $domainName)->exists()) {
+        $user->domains()->attach($domain->PropertyID);
     }
+
+    return back()->with('success', __('Domain added to the user.'));
+}
+
+
+public function assignOrganization(Request $request)
+{
+    $request->validate([
+        'user_email' => 'required|exists:users,email',
+        'organization_name' => 'required|string|max:255',
+    ]);
+
+    $user = User::where('email', $request->user_email)->firstOrFail();
+    $organizationName = $request->input('organization_name');
+
+    $organization = Organization::where('organization', $organizationName)->first();
+
+    if (!$organization) {
+        return back()->with('error', __('The organization does not exist.'));
+    }
+
+    DB::beginTransaction();
+    try {
+        if (!$user->organizations()->where('organization', $organizationName)->exists()) {
+            $user->organizations()->attach($organization->OrganizationID);
+            $user->assignOrgAdminRole();
+        }
+
+        DB::commit();
+        return back()->with('success', __('Organization added to the user.'));
+    } catch (\Exception $e) {
+        DB::rollBack();
+        return back()->with('error', __('An error occurred while assigning the organization.'));
+    }
+}
+
 
     public function removeUserFromDomain(Request $request)
     {
