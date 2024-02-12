@@ -95,13 +95,17 @@ class DomainController extends Controller
     {
         $user = User::where('email', $request->email)->first();
         $organization = Organization::where('organization', $request->organization)->first();
-
+    
         if ($user && $organization) {
             $organization->users()->detach($user->id);
-            $user->revokeOrgAdminRole();
+    
+            if ($user->organizations()->count() == 0) {
+                $user->revokeOrgAdminRole();
+            }
+    
             return response()->json(['success' => true]);
         }
-
+    
         return response()->json(['success' => false, 'message' => 'Invalid user or organization']);
-    }
+    }    
 }
