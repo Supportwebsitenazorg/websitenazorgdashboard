@@ -33,11 +33,11 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="/domains">{{ __('messages.domains') }}</a>
+                                <a class="nav-link" href="/domains">{{ __('messages.properties') }}</a>
                             </li>
                             @can('access-manage-page')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/manage">{{ __('Manage') }}</a>
+                                    <a class="nav-link" href="/manage">{{ __('messages.manage') }}</a>
                                 </li>
                             @endcan
                             <li class="nav-item dropdown">

@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <h2>{{ __('messages.manage_own_properties') }}</h1>
     @foreach ($organizations as $organization)
         <div class="card mb-3">
             <div class="card-header" id="heading{{ $organization->OrganizationID }}">
