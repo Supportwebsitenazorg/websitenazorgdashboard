@@ -64,4 +64,8 @@ return [
     'is_valid' => 'SSL geldig',
     'yes' => 'Ja',
     'no' => 'Nee',
+    'organization' => 'Organisatie',
+    'domain' => 'Domein',
+    'users_for_domain' => 'Gebruikers voor dit domein',
+    'no_users_found' => 'Geen gebruikers gevonden voor dit domein.',
 ];
