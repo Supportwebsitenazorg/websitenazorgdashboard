@@ -37,6 +37,10 @@ Route::middleware(['can:is-orgadmin'])->group(function () {
     // moet nog worden ingevuld
 });
 
+Route::get('/manage', function () {
+    return view('manage'); 
+})->middleware(['auth', 'can:access-manage-page'])->name('manage');
+
 Route::get('/monitoring/{domain}', [App\Http\Controllers\MonitoringController::class, 'show'])
      ->name('monitoring.show')->middleware('auth');
 
@@ -56,4 +60,3 @@ Route::post('/remove-user-from-organization', [DomainController::class, 'removeU
 Route::delete('/user/delete', [App\Http\Controllers\UserController::class, 'delete'])->name('user.delete')->middleware('auth');
 
 Route::get('/api/organizations/{organization}/domains', [DomainController::class, 'getOrganizationDomains'])->middleware('auth');
-

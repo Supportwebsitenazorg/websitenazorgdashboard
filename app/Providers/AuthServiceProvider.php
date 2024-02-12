@@ -36,6 +36,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('is-orgadmin', function ($user) {
             return $user->role === 'orgadmin';
         });
-        
+
+        Gate::define('access-manage-page', function ($user) {
+            return in_array($user->role, ['orgadmin']);
+        });
     }
 }
