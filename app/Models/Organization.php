@@ -20,4 +20,9 @@ class Organization extends Model
     {
         return $this->belongsToMany(User::class, 'organization_user', 'organization_id', 'user_id');
     }
+
+    public function domains()
+    {
+        return $this->hasMany(Domain::class, 'OrganizationID', 'OrganizationID');
+    }
 }

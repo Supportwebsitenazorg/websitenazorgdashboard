@@ -37,9 +37,9 @@ Route::middleware(['can:is-orgadmin'])->group(function () {
     // moet nog worden ingevuld
 });
 
-Route::get('/manage', function () {
-    return view('manage'); 
-})->middleware(['auth', 'can:access-manage-page'])->name('manage');
+Route::get('/manage', [App\Http\Controllers\ManageController::class, 'index'])
+     ->middleware(['auth', 'can:access-manage-page'])->name('manage');
+
 
 Route::get('/monitoring/{domain}', [App\Http\Controllers\MonitoringController::class, 'show'])
      ->name('monitoring.show')->middleware('auth');
