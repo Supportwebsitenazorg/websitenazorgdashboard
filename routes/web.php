@@ -28,8 +28,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/domeinen', [DomainController::class, 'index'])->name('domains.index')->middleware('auth');
-Route::post('/domeinen/assign', [DomainController::class, 'assign'])->name('domains.assign')->middleware('auth', 'can:assign-domains');
+Route::get('/domains', [DomainController::class, 'index'])->name('domains.index')->middleware('auth');
+Route::post('/domains/assign', [DomainController::class, 'assign'])->name('domains.assign')->middleware('auth', 'can:assign-domains');
 
 Route::post('/organizations/assign', [DomainController::class, 'assignOrganization'])->name('organizations.assign')->middleware('auth', 'can:assign-organizations');
 

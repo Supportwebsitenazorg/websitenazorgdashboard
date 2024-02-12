@@ -29,7 +29,7 @@ class DomainController extends Controller
             $allOrganizations = $user->organizations;
         }
 
-        return view('domeinen', compact('users', 'allDomains', 'allOrganizations'));
+        return view('domains', compact('users', 'allDomains', 'allOrganizations'));
     }
 
     public function getOrganizationDomains($organizationId)
