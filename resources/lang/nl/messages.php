@@ -57,4 +57,10 @@ return [
     'enter_your_name' => 'Vul uw naam in...',
     'account_deletion_confirmation' => 'De ingevoerde naam komt niet overeen met uw profielnaam. Probeer het opnieuw.',
     'account_deleted_success' => 'Uw account is succesvol verwijderd.',
+    'monitoring_dashboard_for' => 'Monitoring Dashboard voor :domain',
+    'issuer' => 'SSL Algemene naam',
+    'expiration_date' => 'SSL Vervaldatum',
+    'is_valid' => 'SSL Geldig',
+    'yes' => 'Ja',
+    'no' => 'Nee',
 ];

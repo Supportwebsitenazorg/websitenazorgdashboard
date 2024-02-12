@@ -57,4 +57,10 @@ return [
     'enter_your_name' => 'Enter your name...',
     'account_deletion_confirmation' => 'The name entered does not match your profile name. Please try again.',
     'account_deleted_success' => 'Your account has been successfully deleted.',
+    'monitoring_dashboard_for' => 'Monitoring Dashboard for :domain',
+    'issuer' => 'SSL Issuer',
+    'expiration_date' => 'SSL Expiration Date',
+    'is_valid' => 'SSL Valid',
+    'yes' => 'Yes',
+    'no' => 'No',
 ];
