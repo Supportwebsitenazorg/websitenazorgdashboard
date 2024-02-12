@@ -15,7 +15,7 @@ class DomainController extends Controller
     {
         $user = Auth::user();
         $users = User::where('role', '!=', 'admin')->get();
-    
+
         if ($user->role === 'admin') {
             $allDomains = Domain::with('users')->get();
             $allOrganizations = Organization::with('users')->get();
@@ -25,14 +25,12 @@ class DomainController extends Controller
             })->orWhereHas('organization.users', function ($query) use ($user) {
                 $query->where('user_id', $user->id);
             })->with('users')->get();
-    
+
             $allOrganizations = $user->organizations;
         }
-    
+
         return view('domeinen', compact('users', 'allDomains', 'allOrganizations'));
     }
-    
-
 
     public function assign(Request $request)
     {
@@ -81,29 +79,29 @@ class DomainController extends Controller
     }
 
     public function removeUserFromDomain(Request $request)
-{
-    $user = User::where('email', $request->email)->first();
-    $domain = Domain::where('domain', $request->domain)->first();
-    
-    if($user && $domain) {
-        $domain->users()->detach($user->id);
-        return response()->json(['success' => true]);
-    }
-    
-    return response()->json(['success' => false, 'message' => 'Invalid user or domain']);
-}
+    {
+        $user = User::where('email', $request->email)->first();
+        $domain = Domain::where('domain', $request->domain)->first();
 
-public function removeUserFromOrganization(Request $request)
-{
-    $user = User::where('email', $request->email)->first();
-    $organization = Organization::where('organization', $request->organization)->first();
-    
-    if($user && $organization) {
-        $organization->users()->detach($user->id);
-        return response()->json(['success' => true]);
-    }
-    
-    return response()->json(['success' => false, 'message' => 'Invalid user or organization']);
-}
+        if ($user && $domain) {
+            $domain->users()->detach($user->id);
+            return response()->json(['success' => true]);
+        }
 
+        return response()->json(['success' => false, 'message' => 'Invalid user or domain']);
+    }
+
+    public function removeUserFromOrganization(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+        $organization = Organization::where('organization', $request->organization)->first();
+
+        if ($user && $organization) {
+            $organization->users()->detach($user->id);
+            $user->revokeOrgAdminRole();
+            return response()->json(['success' => true]);
+        }
+
+        return response()->json(['success' => false, 'message' => 'Invalid user or organization']);
+    }
 }

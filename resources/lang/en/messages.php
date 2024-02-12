@@ -54,7 +54,6 @@ return [
     'all_domains_assigned' => 'All Domains',
     'monitoring_dashboard_for' => 'Monitoring Dashboard for :domain',
     'remove_account' => 'Remove Account',
-    'remove_account_warning' => 'To confirm account deletion, please enter your name exactly as it appears in your profile:',
     'enter_your_name' => 'Enter your name...',
     'account_deletion_confirmation' => 'The name entered does not match your profile name. Please try again.',
     'account_deleted_success' => 'Your account has been successfully deleted.',

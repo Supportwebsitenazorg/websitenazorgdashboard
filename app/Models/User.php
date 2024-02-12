@@ -27,29 +27,28 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    /**
-     * The domains that belong to the user.
-     */
     public function domains()
     {
         return $this->belongsToMany(Domain::class, 'domain_user', 'user_id', 'domain_id');
     }
 
-    /**
-     * The organizations that belong to the user.
-     */
     public function organizations()
     {
         return $this->belongsToMany(Organization::class, 'organization_user', 'user_id', 'organization_id');
     }
 
-    /**
-     * Assign the 'orgadmin' role to the user.
-     */
     public function assignOrgAdminRole()
     {
         if ($this->role !== 'orgadmin') {
             $this->role = 'orgadmin';
+            $this->save();
+        }
+    }
+
+    public function revokeOrgAdminRole()
+    {
+        if ($this->role == 'orgadmin') {
+            $this->role = 'user';
             $this->save();
         }
     }
