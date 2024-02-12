@@ -24,6 +24,7 @@ return [
     'forgot_password' => 'Forgot your password?',
     'register_title' => 'Websitenazorg | Register',
     'register_message' => 'Register for an account for access.',
+    'create_account' => 'Create an account',
     'name' => 'Name',
     'confirm_password' => 'Confirm password',
     'already_account' => 'Already have an account? Log in',

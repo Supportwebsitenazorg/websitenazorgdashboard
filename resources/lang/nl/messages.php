@@ -18,6 +18,7 @@ return [
     'my_domains' => 'Mijn domeinen',
     'login_title' => 'Websitenazorg | Inloggen',
     'login_access' => 'Inloggen voor directe toegang.',
+    'create_account' => 'Maak een account aan',
     'email' => 'E-mailadres',
     'password' => 'Wachtwoord',
     'remember_me' => 'Onthoud mij',
