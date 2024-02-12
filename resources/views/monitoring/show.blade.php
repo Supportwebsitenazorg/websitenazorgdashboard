@@ -6,10 +6,23 @@
     @if(isset($data['error']))
         <div class="alert alert-danger">{{ $data['error'] }}</div>
     @else
-        <div>
-            <p>@lang('messages.issuer'): {{ $data['issuer'] }}</p>
-            <p>@lang('messages.expiration_date'): {{ $data['expirationDate']->toDateString() }}</p>
-            <p>@lang('messages.is_valid'): {{ $data['isValid'] ? trans('messages.yes') : trans('messages.no') }}</p>
+        <div class="table-responsive">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>@lang('messages.issuer')</th>
+                        <td>{{ $data['issuer'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>@lang('messages.expiration_date')</th>
+                        <td>{{ $data['expirationDate']->toDateString() }}</td>
+                    </tr>
+                    <tr>
+                        <th>@lang('messages.is_valid')</th>
+                        <td>{{ $data['isValid'] ? trans('messages.yes') : trans('messages.no') }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     @endif
 </div>
