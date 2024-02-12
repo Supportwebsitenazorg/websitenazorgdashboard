@@ -32,6 +32,13 @@ class DomainController extends Controller
         return view('domeinen', compact('users', 'allDomains', 'allOrganizations'));
     }
 
+    public function getOrganizationDomains($organizationId)
+{
+    $domains = Domain::where('OrganizationID', $organizationId)->with('users')->get();
+    return response()->json($domains);
+}
+
+
     public function assign(Request $request)
     {
         $request->validate([

@@ -88,31 +88,71 @@
                             @endif
                         </div>
                     @else
-                        <h3>@lang('messages.my_domains')</h3>
-                        @if (isset($allDomains) && $allDomains->isNotEmpty())
-                            <ul>
-                                @foreach ($allDomains as $domain)
-                                    <li>
-                                        <a href="{{ route('monitoring.show', ['domain' => $domain->domain]) }}">
-                                            {{ $domain->domain }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @else
-                            <p>@lang('messages.no_domains_added')</p>
-                        @endif
-                        
-                        <h3>@lang('messages.my_organizations')</h3>
-                        @if (Auth::user()->organizations->isNotEmpty())
-                            <ul>
+                    @if (Auth::user()->role === 'orgadmin')
+                        <div class="form-group">
+                            <label for="select_organization">@lang('messages.select_organization')</label>
+                            <select class="form-control" id="select_organization" onchange="showOrganizationDomains(this)">
+                                <option value="">@lang('messages.select_an_organization')</option>
                                 @foreach (Auth::user()->organizations as $organization)
-                                    <li>{{ $organization->organization }}</li>
+                                    <option value="{{ $organization->OrganizationID }}">{{ $organization->organization }}</option>
                                 @endforeach
-                            </ul>
+                            </select>
+                        </div>
+
+                        <div id="organization_domains" style="display:none;">
+                            <h3>@lang('messages.domains_under_organization')</h3>
+                            <ul id="domains_list"></ul>
+                        </div>
+                    @elseif (Auth::user()->role === 'user')
+                        @php
+                        $userOrganizationsWithDomains = Auth::user()->organizations->filter(function ($organization) {
+                            return $organization->domains->isNotEmpty();
+                        });
+                        @endphp
+
+                        @if ($userOrganizationsWithDomains->isNotEmpty())
+                            <div class="form-group">
+                                <label for="select_user_organization">@lang('messages.select_organization')</label>
+                                <select class="form-control" id="select_user_organization" onchange="showUserOrganizationDomains(this)">
+                                    <option value="">@lang('messages.select_an_organization')</option>
+                                    @foreach ($userOrganizationsWithDomains as $organization)
+                                        <option value="{{ $organization->OrganizationID }}">{{ $organization->organization }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div id="user_organization_domains" style="display:none;">
+                                <h3>@lang('messages.domains_under_organization')</h3>
+                                <ul id="user_domains_list"></ul>
+                            </div>
                         @else
-                            <p>@lang('messages.no_organizations_added')</p>
+                            <h3>@lang('messages.my_domains')</h3>
+                            @if (isset($allDomains) && $allDomains->isNotEmpty())
+                                <ul>
+                                    @foreach ($allDomains as $domain)
+                                        <li>
+                                            <a href="{{ route('monitoring.show', ['domain' => $domain->domain]) }}">
+                                                {{ $domain->domain }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                <p>@lang('messages.no_domains_added')</p>
+                            @endif
+
+                            <h3>@lang('messages.my_organizations')</h3>
+                            @if (Auth::user()->organizations->isNotEmpty())
+                                <ul>
+                                    @foreach (Auth::user()->organizations as $organization)
+                                        <li>{{ $organization->organization }}</li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                <p>@lang('messages.no_organizations_added')</p>
+                            @endif
                         @endif
+                    @endif
                     @endif
                 </div>
             </div>
@@ -156,5 +196,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-</script>
 
+function showOrganizationDomains(selectElement) {
+    const organizationId = selectElement.value;
+    const domainsList = document.getElementById('domains_list');
+
+    domainsList.innerHTML = '';
+
+    if (organizationId) {
+        fetch(`/api/organizations/${organizationId}/domains`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                data.forEach(domain => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.setAttribute('href', `/monitoring/${domain.domain}`);
+                    a.textContent = domain.domain;
+                    li.appendChild(a);
+                    domainsList.appendChild(li);
+                });
+                document.getElementById('organization_domains').style.display = 'block';
+            } else {
+                document.getElementById('organization_domains').style.display = 'none';
+                alert('@lang('messages.no_domains_for_organization')');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    } else {
+        document.getElementById('organization_domains').style.display = 'none';
+    }
+}
+</script>

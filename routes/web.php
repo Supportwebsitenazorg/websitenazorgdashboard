@@ -54,3 +54,6 @@ Route::post('/remove-user-from-domain', [DomainController::class, 'removeUserFro
 Route::post('/remove-user-from-organization', [DomainController::class, 'removeUserFromOrganization'])->middleware('auth', 'can:assign-organizations');
 
 Route::delete('/user/delete', [App\Http\Controllers\UserController::class, 'delete'])->name('user.delete')->middleware('auth');
+
+Route::get('/api/organizations/{organization}/domains', [DomainController::class, 'getOrganizationDomains'])->middleware('auth');
+
