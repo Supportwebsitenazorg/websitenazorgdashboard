@@ -9,7 +9,7 @@ return [
     'title' => 'Websitenazorg+',
     'login_message' => 'Log in bij Websitenazorg+ om toegang te krijgen tot het dashboard.',
     'properties' => 'Eigendommen',
-    'manage' => 'Beheren',
+    'manage' => 'Teambeheer',
     'manage_own_properties' => 'Eigen eigendommen beheren',
     'user_email' => 'Gebruiker email',
     'domain_name' => 'Domeinnaam',

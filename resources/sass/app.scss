@@ -54,10 +54,21 @@
 
 .removable-user {
     cursor: pointer;
-    color: black;
+    color: blue;
     text-decoration: none;
 }
 
 .removable-user:hover {
+    color: red;
+}
+
+// KEEP THIS DONT REMOVE! ITS DUPE CODE BC OF JS ERRORS
+.remove-user-email {
+    cursor: pointer;
+    color: blue;
+    text-decoration: none;
+}
+
+.remove-user-email:hover {
     color: red;
 }

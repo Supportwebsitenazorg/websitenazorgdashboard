@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="container">
-    <h2>{{ __('messages.manage_own_properties') }}</h1>
+    <h2>{{ __('messages.manage_own_properties') }}</h2>
     @foreach ($organizations as $organization)
-        <div class="card mb-3">
-            <div class="card-header" id="heading{{ $organization->OrganizationID }}">
+        <div>
+            <div id="heading{{ $organization->OrganizationID }}">
                 <h5 class="mb-0">
                     <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $organization->OrganizationID }}" aria-expanded="true" aria-controls="collapse{{ $organization->OrganizationID }}">
                         {{ $organization->organization }}
@@ -19,23 +19,19 @@
                         <strong>{{ __('messages.domain') }}:</strong> {{ $domain->domain }}
                         @if ($domain->users->isNotEmpty())
                             <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">{{ __('messages.email') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
                                     @foreach ($domain->users as $index => $user)
                                         <tr>
-                                            <th scope="row">{{ $index + 1 }}</th>
-                                            <td>{{ $user->email }}</td>
+                                            <td>
+                                                <a class="remove-user-email" data-email="{{ $user->email }}" data-domain="{{ $domain->domain }}" data-organization="{{ $organization->id }}">
+                                                    {{ $user->email }}
+                                                </a>
+                                            </td>
                                         </tr>
                                     @endforeach
-                                    </tbody>
+                                </tbody>
                             </table>
                         @else
-                            <p>{{ __('messages.no_users_found') }}</p>
+                                <p>{{ __('messages.no_users_found') }}</p>
                         @endif
                     @endforeach
                 </div>

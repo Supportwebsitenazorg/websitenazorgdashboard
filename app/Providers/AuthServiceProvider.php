@@ -40,5 +40,13 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('access-manage-page', function ($user) {
             return in_array($user->role, ['orgadmin']);
         });
+
+        Gate::define('remove-user-organization', function ($user) {
+            return $user->role === 'admin' || $user->role === 'orgadmin';
+        });
+
+        Gate::define('remove-user-domain', function ($user) {
+            return $user->role === 'orgadmin';
+        });
     }
 }
