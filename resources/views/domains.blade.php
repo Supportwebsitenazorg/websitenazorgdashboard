@@ -104,28 +104,6 @@
                             <ul id="domains_list"></ul>
                         </div>
                     @elseif (Auth::user()->role === 'user')
-                        @php
-                        $userOrganizationsWithDomains = Auth::user()->organizations->filter(function ($organization) {
-                            return $organization->domains->isNotEmpty();
-                        });
-                        @endphp
-
-                        @if ($userOrganizationsWithDomains->isNotEmpty())
-                            <div class="form-group">
-                                <label for="select_user_organization">@lang('messages.select_organization')</label>
-                                <select class="form-control" id="select_user_organization" onchange="showUserOrganizationDomains(this)">
-                                    <option value="">@lang('messages.select_an_organization')</option>
-                                    @foreach ($userOrganizationsWithDomains as $organization)
-                                        <option value="{{ $organization->OrganizationID }}">{{ $organization->organization }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-                            <div id="user_organization_domains" style="display:none;">
-                                <h3>@lang('messages.domains_under_organization')</h3>
-                                <ul id="user_domains_list"></ul>
-                            </div>
-                        @else
                             <h3>@lang('messages.my_domains')</h3>
                             @if (isset($allDomains) && $allDomains->isNotEmpty())
                                 <ul>
@@ -140,19 +118,7 @@
                             @else
                                 <p>@lang('messages.no_domains_added')</p>
                             @endif
-
-                            <h3>@lang('messages.my_organizations')</h3>
-                            @if (Auth::user()->organizations->isNotEmpty())
-                                <ul>
-                                    @foreach (Auth::user()->organizations as $organization)
-                                        <li>{{ $organization->organization }}</li>
-                                    @endforeach
-                                </ul>
-                            @else
-                                <p>@lang('messages.no_organizations_added')</p>
-                            @endif
                         @endif
-                    @endif
                     @endif
                 </div>
             </div>
