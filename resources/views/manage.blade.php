@@ -49,9 +49,6 @@
                         @if ($domain->users->isNotEmpty())
                             <table class="table">
                                 <thead>
-                                    <tr>
-                                        <th>{{ __('messages.user_email') }}</th>
-                                    </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($domain->users as $user)

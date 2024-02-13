@@ -88,6 +88,7 @@ return [
     'locales' => [
         'en' => 'English',
         'nl' => 'Dutch',
+        'hi' => 'Hindi',
     ],
 
     /*

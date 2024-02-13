@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>    
-                <div class="card-body"><p>Test</p></div>
+                <div class="card-body"><p>awdawadwwda</p></div>
             </div>
         </div>
     </div>

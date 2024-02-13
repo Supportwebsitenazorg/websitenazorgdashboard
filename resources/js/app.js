@@ -8,10 +8,12 @@ import {
 } from "./functionsManagement";
 
 document.addEventListener("DOMContentLoaded", function () {
-    initRemovableUsers(); 
+    initRemovableUsers();
     initClickableRemovalEmails();
 
-    const organizationSelects = document.querySelectorAll(".organization-select");
+    const organizationSelects = document.querySelectorAll(
+        ".organization-select"
+    );
     organizationSelects.forEach((select) => {
         select.addEventListener("change", function () {
             showOrganizationDomains(this);

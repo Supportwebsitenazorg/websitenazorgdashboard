@@ -1,15 +1,16 @@
 function initClickableRemovalEmails() {
     document.querySelectorAll(".remove-user-email").forEach(function (element) {
         element.addEventListener("click", function () {
-
-            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+            const csrfToken = document
+                .querySelector('meta[name="csrf-token"]')
+                .getAttribute("content");
 
             const data = {
                 email: this.getAttribute("data-email"),
                 domain: this.getAttribute("data-domain"),
             };
 
-            fetch('/manage/remove-user-from-domain', {
+            fetch("/manage/remove-user-from-domain", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -17,17 +18,17 @@ function initClickableRemovalEmails() {
                 },
                 body: JSON.stringify(data),
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    this.closest('tr').remove();
-                } else {
-                    alert("Error: " + data.message);
-                }
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.success) {
+                        this.closest("tr").remove();
+                    } else {
+                        alert("Error: " + data.message);
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
         });
     });
 }
@@ -36,12 +37,16 @@ function initRemovableUsers() {
     document.querySelectorAll(".removable-user").forEach(function (element) {
         element.addEventListener("click", function () {
             const isDomain = this.getAttribute("data-domain") ? true : false;
-            const url = isDomain ? "/remove-user-from-domain" : "/remove-user-from-organization";
+            const url = isDomain
+                ? "/remove-user-from-domain"
+                : "/remove-user-from-organization";
             const data = {
                 email: this.getAttribute("data-email"),
                 domain: this.getAttribute("data-domain"),
                 organization: this.getAttribute("data-organization"),
-                _token: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+                _token: document
+                    .querySelector('meta[name="csrf-token"]')
+                    .getAttribute("content"),
             };
 
             fetch(url, {
@@ -51,17 +56,17 @@ function initRemovableUsers() {
                 },
                 body: JSON.stringify(data),
             })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.success) {
-                    this.remove();
-                } else {
-                    alert("Error: " + data.message);
-                }
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.success) {
+                        this.remove();
+                    } else {
+                        alert("Error: " + data.message);
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
         });
     });
 }
@@ -74,26 +79,34 @@ function showOrganizationDomains(selectElement) {
 
     if (organizationId) {
         fetch(`/api/organizations/${organizationId}/domains`)
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.length > 0) {
-                data.forEach((domain) => {
-                    const li = document.createElement("li");
-                    const a = document.createElement("a");
-                    a.setAttribute("href", `/monitoring/${domain.domain}`);
-                    a.textContent = domain.domain;
-                    li.appendChild(a);
-                    domainsList.appendChild(li);
-                });
-                document.getElementById("organization_domains").style.display = "block";
-            } else {
-                document.getElementById("organization_domains").style.display = "none";
-            }
-        })
-        .catch((error) => console.error("Error:", error));
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.length > 0) {
+                    data.forEach((domain) => {
+                        const li = document.createElement("li");
+                        const a = document.createElement("a");
+                        a.setAttribute("href", `/monitoring/${domain.domain}`);
+                        a.textContent = domain.domain;
+                        li.appendChild(a);
+                        domainsList.appendChild(li);
+                    });
+                    document.getElementById(
+                        "organization_domains"
+                    ).style.display = "block";
+                } else {
+                    document.getElementById(
+                        "organization_domains"
+                    ).style.display = "none";
+                }
+            })
+            .catch((error) => console.error("Error:", error));
     } else {
         document.getElementById("organization_domains").style.display = "none";
     }
 }
 
-export { initRemovableUsers, showOrganizationDomains, initClickableRemovalEmails };
+export {
+    initRemovableUsers,
+    showOrganizationDomains,
+    initClickableRemovalEmails,
+};

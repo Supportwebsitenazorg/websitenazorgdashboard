@@ -24,6 +24,7 @@
                                 <select onchange="changeLanguage(this)">
                                     <option value="en"{{ app()->getLocale() == 'en' ? ' selected' : '' }}>@lang('messages.english')</option>
                                     <option value="nl"{{ app()->getLocale() == 'nl' ? ' selected' : '' }}>@lang('messages.dutch')</option>
+                                    <option value="hi"{{ app()->getLocale() == 'hi' ? ' selected' : '' }}>@lang('messages.hindi')</option>
                                 </select>
                             </div>
                         </div>

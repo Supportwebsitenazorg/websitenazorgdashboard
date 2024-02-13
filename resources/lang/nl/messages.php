@@ -3,6 +3,7 @@
 return [
     'english' => 'Engels',
     'dutch' => 'Nederlands',
+    'hindi' => 'Hindi',
     'welcome' => 'Welkom',
     'login' => 'Inloggen',
     'register' => 'Registreren',
