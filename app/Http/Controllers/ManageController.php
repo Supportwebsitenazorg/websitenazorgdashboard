@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Domain;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class ManageController extends Controller
 {
@@ -48,4 +49,21 @@ class ManageController extends Controller
 
         return response()->json(['success' => true, 'message' => 'User removed from domain']);
     }
+
+    public function addUserToDomain(Request $request)
+{
+    $orgAdmin = Auth::user();
+
+    if ($orgAdmin->role !== 'orgadmin') {
+        return response()->json(['success' => false, 'message' => 'Unauthorized'], 403);
+    }
+
+    $domain = Domain::where('domain', $request->domain)->firstOrFail();
+    $user = User::firstOrCreate(['email' => $request->user_email], ['name' => 'Default Name', 'password' => Hash::make('defaultpassword')]);
+    
+    $domain->users()->attach($user->id);
+
+    return back()->with('success', 'User added to domain successfully.');
+}
+
 }

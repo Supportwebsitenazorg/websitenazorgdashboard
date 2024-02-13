@@ -66,3 +66,7 @@ Route::get('/api/organizations/{organization}/domains', [DomainController::class
 Route::post('/manage/remove-user-from-domain', [App\Http\Controllers\ManageController::class, 'removeUserFromDomain'])
      ->middleware(['auth', 'can:remove-user-domain']);
 
+Route::post('/manage/add-user-to-domain', [App\Http\Controllers\ManageController::class, 'addUserToDomain'])
+     ->middleware(['auth', 'can:add-user-domain'])->name('add-user-to-domain');
+
+
