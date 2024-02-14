@@ -17,6 +17,7 @@ class MonitoringController extends Controller
             $sslCertificate = SslCertificate::createForHostName($url);
             $headers = get_headers($url, 1);
             $headersJson = json_encode($headers);
+            $phpVersion = isset($headers['X-Powered-By']) ? $headers['X-Powered-By'] : '0';
 
             DB::beginTransaction();
 
@@ -27,6 +28,7 @@ class MonitoringController extends Controller
                     'ssl_expiration_date' => $sslCertificate->expirationDate(),
                     'ssl_is_valid' => $sslCertificate->isValid() ? 1 : 0,
                     'headers' => $headersJson,
+                    'php_version' => $phpVersion,
                     'updated_at' => now()
                 ]
             );
@@ -38,7 +40,8 @@ class MonitoringController extends Controller
                 'issuer' => $domainRecord->ssl_issuer,
                 'expirationDate' => $domainRecord->ssl_expiration_date,
                 'isValid' => $domainRecord->ssl_is_valid,
-                'headers' => $headers
+                'headers' => $headers,
+                'phpVersion' => $domainRecord->php_version,
             ];
 
         } catch (\Exception $e) {

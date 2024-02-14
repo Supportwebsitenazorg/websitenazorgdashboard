@@ -35,6 +35,16 @@
                             </td>
                         </tr>
                         @endif
+                        <tr>
+                            <th>@lang('messages.php_version')</th>
+                            <td>
+                                @if(is_array($data['phpVersion']))
+                                    {{ implode(', ', $data['phpVersion']) }}
+                                @else
+                                    {{ $data['phpVersion'] != '0' ? $data['phpVersion'] : trans('messages.not_available') }}
+                                @endif
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

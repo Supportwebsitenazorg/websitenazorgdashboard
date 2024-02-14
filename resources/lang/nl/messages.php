@@ -73,6 +73,8 @@ return [
     'yes' => 'Ja',
     'no' => 'Nee',
     'headers' => 'Headers',
+    'php_version' => 'PHP-versie',
+    'not_available' => 'Niet beschikbaar',
     'organization' => 'Organisatie',
     'domain' => 'Domein',
     'users_for_domain' => 'Gebruikers voor dit domein',

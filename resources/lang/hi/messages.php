@@ -73,6 +73,8 @@ return [
     'yes' => 'Haan',
     'no' => 'Nahi',
     'headers' => 'Headers',
+    'php_version' => 'PHP version',
+    'not_available' => 'Maujood nahi hai',
     'organization' => 'Sangathan',
     'domain' => 'Domain',
     'users_for_domain' => 'Is domain ke liye upyogkarta',
