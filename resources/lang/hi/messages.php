@@ -72,6 +72,7 @@ return [
     'is_valid' => 'SSL maany hai',
     'yes' => 'Haan',
     'no' => 'Nahi',
+    'headers' => 'Headers',
     'organization' => 'Sangathan',
     'domain' => 'Domain',
     'users_for_domain' => 'Is domain ke liye upyogkarta',

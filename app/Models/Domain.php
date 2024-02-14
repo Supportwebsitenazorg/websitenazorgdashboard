@@ -10,7 +10,7 @@ class Domain extends Model
     use HasFactory;
 
     protected $primaryKey = 'PropertyID';
-    protected $fillable = ['domain', 'ssl_issuer', 'ssl_expiration_date', 'SSL_is_valid'];
+    protected $fillable = ['domain', 'ssl_issuer', 'ssl_expiration_date', 'SSL_is_valid', 'headers'];
     public $incrementing = false;
     
 

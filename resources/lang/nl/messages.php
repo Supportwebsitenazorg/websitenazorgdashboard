@@ -72,6 +72,7 @@ return [
     'is_valid' => 'SSL geldig',
     'yes' => 'Ja',
     'no' => 'Nee',
+    'headers' => 'Headers',
     'organization' => 'Organisatie',
     'domain' => 'Domein',
     'users_for_domain' => 'Gebruikers voor dit domein',
