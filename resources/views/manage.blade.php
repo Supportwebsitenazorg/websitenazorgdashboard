@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="card mb-4">
-    <div class="card-header">@lang('messages.manage_own_properties')</div>
+    <div class="card-header">@lang('messages.manage_own_team')</div>
         <div class="card-body">
             <form method="POST" action="{{ route('add-user-to-domain') }}">
                 @csrf

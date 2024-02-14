@@ -63,7 +63,7 @@
                             @lang('messages.forgot_password')
                         </a>
                     @endif
-                    <a class="btn welcome-buttons" href="{{ route('register') }}">@lang('messages.register')</a>
+                    <a class="btn welcome-buttons" href="{{ route('welcome') }}">@lang('messages.register')</a>
                 </div>
             </div>
         </div>

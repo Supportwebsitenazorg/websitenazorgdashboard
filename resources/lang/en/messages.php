@@ -76,4 +76,5 @@ return [
     'domain' => 'Domain',
     'users_for_domain' => 'Users for this domain',
     'no_users_found' => 'No users found for this domain.',
+    'manage_own_team' => 'Manage your team',
 ];

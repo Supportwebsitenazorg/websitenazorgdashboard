@@ -76,4 +76,5 @@ return [
     'domain' => 'Domein',
     'users_for_domain' => 'Gebruikers voor dit domein',
     'no_users_found' => 'Geen gebruikers gevonden voor dit domein.',
+    'manage_own_team' => 'Beheer je team',
 ];

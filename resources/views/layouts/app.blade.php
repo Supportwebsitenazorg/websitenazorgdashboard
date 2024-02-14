@@ -30,6 +30,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('messages.register') }}</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a>
+                                </li>
                             @endif
                         @else
                             <li class="nav-item">
