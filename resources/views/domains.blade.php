@@ -3,10 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+        <div class="col">
+            <div class="card mb-4">
                 <div class="card-header">@lang('messages.domains_and_organizations')</div>
-
                 <div class="card-body">
                     @if (Auth::user()->role === 'admin')
                         <div class="d-flex justify-content-between flex-wrap">

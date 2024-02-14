@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    <h2>{{ __('messages.manage_own_properties') }}</h2>
     <div class="card mb-4">
+    <div class="card-header">@lang('messages.manage_own_properties')</div>
         <div class="card-body">
             <form method="POST" action="{{ route('add-user-to-domain') }}">
                 @csrf
@@ -29,9 +29,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary mt-1">{{ __('messages.add_user') }}</button>
             </form>
-        </div>
-    </div>
-
+        <hr>
     @foreach ($organizations as $organization)
         <div>
             <div id="heading{{ $organization->OrganizationID }}">
@@ -70,6 +68,8 @@
             </div>
         </div>
     @endforeach
-
+    </div>
+    </div>
+</div>
 </div>
 @endsection

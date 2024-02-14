@@ -10,7 +10,7 @@ return [
     'title' => 'Websitenazorg+',
     'login_message' => 'Log in to Websitenazorg+ to access the dashboard.',
     'properties' => 'Properties',
-    'manage' => 'Manage',
+    'manage' => 'Team-Management',
     'manage_own_properties' => 'Manage Your Properties',
     'select_domain' => 'Select Domain',
     'user_email' => 'User Email',
