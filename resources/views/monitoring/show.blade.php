@@ -22,7 +22,7 @@
                             <th>@lang('messages.is_valid')</th>
                             <td>{{ $data['isValid'] ? trans('messages.yes') : trans('messages.no') }}</td>
                         </tr>
-                        <!-- Add a section to display headers -->
+
                         @if(isset($data['headers']) && is_array($data['headers']))
                         <tr>
                             <th>@lang('messages.headers')</th>
