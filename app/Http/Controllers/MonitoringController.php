@@ -20,6 +20,7 @@ class MonitoringController extends Controller
             // Fetch the headers
             $headers = get_headers($url, 1); // 1 to use associative array
             $headersJson = json_encode($headers); // Convert headers to JSON to store in TEXT type
+            
 
             DB::beginTransaction();
 
@@ -29,7 +30,7 @@ class MonitoringController extends Controller
                 [
                     'ssl_issuer' => $sslCertificate->getIssuer(),
                     'ssl_expiration_date' => $sslCertificate->expirationDate(),
-                    'SSL_is_valid' => $sslCertificate->isValid() ? 1 : 0,
+                    'ssl_is_valid' => $sslCertificate->isValid() ? 1 : 0,
                     'headers' => $headersJson,
                     'updated_at' => now()  // Assuming you want to set this to the current time
                 ]
