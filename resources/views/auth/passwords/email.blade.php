@@ -9,7 +9,7 @@
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                            {{ __('messages.sent') }}
                         </div>
                     @endif
                     <form method="POST" action="{{ route('password.email') }}">

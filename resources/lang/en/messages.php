@@ -80,5 +80,13 @@ return [
     'users_for_domain' => 'Users for this domain',
     'no_users_found' => 'No users found for this domain.',
     'manage_own_team' => 'Manage your team',
-
+    'sent' => 'We have e-mailed your password reset link!',
+    'password_reset_subject' => 'Reset Your Password',
+    'password_reset_greeting' => 'Hello!',
+    'password_reset_intro' => 'You are receiving this email because we received a password reset request for your account.',
+    'password_reset_button' => 'Reset Password',
+    'password_reset_expire' => 'This password reset link will expire in 5 minutes. If you did not request a password reset, no further action is required.',
+    'password_reset_regards' => 'Regards,',
+    'password_reset_subcopy' => 'If you’re having trouble clicking the "Reset Password" button, copy and paste the URL below into your web browser:',
+    'resetpassword_notification_subject' => 'Oohhh.. Need a new password?',
 ];

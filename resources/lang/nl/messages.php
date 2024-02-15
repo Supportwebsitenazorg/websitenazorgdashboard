@@ -80,4 +80,13 @@ return [
     'users_for_domain' => 'Gebruikers voor dit domein',
     'no_users_found' => 'Geen gebruikers gevonden voor dit domein.',
     'manage_own_team' => 'Beheer je team',
+    'sent' => 'We hebben je een e-mail gestuurd met een link om je wachtwoord te resetten!',
+    'password_reset_subject' => 'Wachtwoord opnieuw instellen',
+    'password_reset_greeting' => 'Hallo!',
+    'password_reset_intro' => 'Je ontvangt deze e-mail omdat we een verzoek tot wachtwoordherstel voor je account hebben ontvangen.',
+    'password_reset_button' => 'Wachtwoord opnieuw instellen',
+    'password_reset_expire' => 'Deze link voor het opnieuw instellen van het wachtwoord verloopt over 5 minuten. Als je geen wachtwoordherstel hebt aangevraagd, is er geen verdere actie vereist.',
+    'password_reset_regards' => 'Met vriendelijke groet,',
+    'password_reset_subcopy' => 'Als je problemen hebt met het klikken op de knop "Wachtwoord opnieuw instellen", kopieer en plak dan de onderstaande URL in je webbrowser:',
+    'resetpassword_notification_subject' => 'Oeiii.. Nieuw wachtwoord nodig?',
 ];

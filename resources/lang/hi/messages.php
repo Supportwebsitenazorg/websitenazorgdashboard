@@ -80,4 +80,13 @@ return [
     'users_for_domain' => 'Is domain ke liye upyogkarta',
     'no_users_found' => 'Is domain ke liye koi upyogkarta nahin mila.',
     'manage_own_team' => 'Apni team ka prabandhan karen',
+    'sent' => 'Hamane aapako aapaka paasavard reeset karane ke lie ek link ke saath ek eemel bheja hai!',
+    'password_reset_subject' => 'Apna Password Reset Karein',
+    'password_reset_greeting' => 'Namaste!',
+    'password_reset_intro' => 'Aap yeh email isliye prapt kar rahe hain kyunki humein aapke account ke liye ek password reset request mila hai.',
+    'password_reset_button' => 'Password Reset Karein',
+    'password_reset_expire' => 'Yeh password reset link 5 minutes mein expire ho jayega. Agar aapne koi password reset request nahi kiya hai, toh koi aur karyawahi ki avashyakta nahi hai.',
+    'password_reset_regards' => 'Saadar Namaste,',
+    'password_reset_subcopy' => 'Agar aap "Password Reset" button par click karne mein samasya ho rahi hai, toh neeche diye gaye URL ko apne web browser mein copy-paste karein:',
+    'resetpassword_notification_subject' => 'Oiii.. ek naya paasavaistog chaahie?',
 ];
