@@ -38,7 +38,9 @@ Route::get('/manage', [App\Http\Controllers\ManageController::class, 'index'])
      ->middleware(['auth', 'verified', 'can:access-manage-page'])->name('manage');
 
 Route::get('/monitoring/{domain}', [App\Http\Controllers\MonitoringController::class, 'show'])
-     ->name('monitoring.show')->middleware(['auth', 'verified']);
+     ->middleware(['auth', 'verified', 'can:view-monitoring,domain'])
+     ->name('monitoring.show');
+
 
 Route::get('/settings', function () {
     return view('settings');

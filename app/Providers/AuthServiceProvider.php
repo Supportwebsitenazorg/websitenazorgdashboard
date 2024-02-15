@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use App\Models\Domain;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -52,6 +53,24 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('add-user-domain', function ($user) {
             return $user->role === 'orgadmin';
         });
+
+        Gate::define('view-monitoring', function ($user, $domain) {
+            if ($user->role === 'admin') {
+                return true;
+            }
+
+            $isUserAssignedToDomain = $user->domains()->where('domain', $domain)->exists();
+
+            $isUserOrgAdminForDomain = false;
+            if ($user->role === 'orgadmin') {
+                $domainOrganizationId = Domain::where('domain', $domain)->first()->OrganizationID ?? null;
+                $isUserOrgAdminForDomain = $user->organizations()->where('OrganizationID', $domainOrganizationId)->exists();
+            }
+        
+            return $isUserAssignedToDomain || $isUserOrgAdminForDomain;
+        });
+        
+        
         
     }
 }
