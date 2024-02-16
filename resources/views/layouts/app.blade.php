@@ -11,11 +11,11 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body class="antialiased">
-    <div id="app" class="container-fluid">
+    <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container d-flex justify-content-between">
         <a class="navbar-brand" href="{{ url('/dashboard') }}">
-            <img src="{{ asset('/Logo.png') }}" alt="{{ __('messages.logo_alt') }}" style="height: 50px;">
+            <img src="{{ asset('/Logo3.jpg') }}" alt="{{ __('messages.logo_alt') }}" style="height: 50px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>

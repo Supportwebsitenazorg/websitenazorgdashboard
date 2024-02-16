@@ -16,8 +16,17 @@
 @import '../../public/css/user.css';
 @import '../../public/css/user.min.css';
 
+.html, body {
+    min-height: 100vh;
+    background-image: url('/bgwelcome2.png');
+}
+
 .custombgcolor {
     background-color: #edf2f9;
+}
+
+.custombgcolor2 {
+    background-image: url('/bgwelcome.png');
 }
 
 .card-body-welcome {
