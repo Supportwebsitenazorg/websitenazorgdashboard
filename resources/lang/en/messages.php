@@ -113,5 +113,9 @@ return [
     'Veilig' => 'Safe',
     'Risico' => 'At Risk',
     'Gevaarlijk' => 'Dangerous',
-    'Niet beschikbaar' => 'Not Available'
+    'Niet beschikbaar' => 'Not Available',
+    'verify_email_subject' => 'Verify Your Email Address',
+    'verify_email_line' => 'Please click the button below to verify your email address.',
+    'verify_email_action' => 'Verify Email Address',
+    'verify_email_no_action' => 'If you did not create an account, no further action is required.',
 ];

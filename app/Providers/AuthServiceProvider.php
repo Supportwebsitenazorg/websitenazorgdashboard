@@ -69,8 +69,6 @@ class AuthServiceProvider extends ServiceProvider
         
             return $isUserAssignedToDomain || $isUserOrgAdminForDomain;
         });
-        
-        
-        
+
     }
 }

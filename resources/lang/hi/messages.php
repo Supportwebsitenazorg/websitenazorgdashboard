@@ -113,5 +113,9 @@ return [
     'Veilig' => 'Surakshit',
     'Risico' => 'Khatra',
     'Gevaarlijk' => 'Khatarnak',
-    'Niet beschikbaar' => 'Maujood Nahi Hai'
+    'Niet beschikbaar' => 'Maujood Nahi Hai',
+    'verify_email_subject' => 'Apna Email Pata Satyapan Karein',
+    'verify_email_line' => 'Kripya neeche diye gaye button par click karein apne email pate ka satyapan karne ke liye.',
+    'verify_email_action' => 'Email Pata Satyapan Karein',
+    'verify_email_no_action' => 'Yadi aapne khaata nahi banaya hai, toh kisi prakaar ki aur kriya ki aavashyakta nahi hai.',
 ];

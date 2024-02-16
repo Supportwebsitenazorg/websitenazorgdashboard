@@ -43,13 +43,13 @@ class CustomVerifyEmail extends Notification implements ShouldQueue
         $verificationUrl = $this->verificationUrl($notifiable);
     
         return (new MailMessage)
-            ->subject(__('Verify Your Email Address'))
-            ->line(__('Please click the button below to verify your email address.'))
-            ->action(__('Verify Email Address'), $verificationUrl)
-            ->line(__('If you did not create an account, no further action is required.'))
-            ->with([
-                'actionUrl' => $verificationUrl
-            ]);
+        ->subject(Lang::get('messages.verify_email_subject'))
+        ->line(Lang::get('messages.verify_email_line'))
+        ->action(Lang::get('messages.verify_email_action'), $verificationUrl)
+        ->line(Lang::get('messages.verify_email_no_action'))
+        ->with([
+            'actionUrl' => $verificationUrl,
+        ]);
     }
     
 
