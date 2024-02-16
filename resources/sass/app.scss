@@ -7,6 +7,15 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+@import '../../public/css/theme-rtl.css';
+@import '../../public/css/theme-rtl.min.css';
+@import '../../public/css/theme.css';
+@import '../../public/css/theme.min.css';
+@import '../../public/css/user-rtl.css';
+@import '../../public/css/user-rtl.min.css';
+@import '../../public/css/user.css';
+@import '../../public/css/user.min.css';
+
 .bg-welcome {
     background-color: #EDF2F9;
 }
