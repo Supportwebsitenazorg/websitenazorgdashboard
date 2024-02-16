@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body class="antialiased">
+<body class="antialiased custombgcolor">
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center min-vh-100">
             <div class="col-sm-12 col-md-6 col-lg-4">
@@ -20,8 +20,8 @@
                             <img src="{{ asset('/Logo.png') }}" alt="@lang('messages.title')">
                             <h1 class="h3 mb-3 welcome-text pt-5">@lang('messages.welcome')</h1>
                             <h5>@lang('messages.login_message')</h5>
-                            <div class="language-switcher">
-                                <select onchange="changeLanguage(this)">
+                            <div class="language-switcher mb-3 mt-4">
+                                <select class="form-select" onchange="changeLanguage(this)">
                                     <option value="nl"{{ app()->getLocale() == 'nl' ? ' selected' : '' }}>@lang('messages.dutch')</option>
                                     <option value="en"{{ app()->getLocale() == 'en' ? ' selected' : '' }}>@lang('messages.english')</option>
                                     <option value="hi"{{ app()->getLocale() == 'hi' ? ' selected' : '' }}>@lang('messages.hindi')</option>
