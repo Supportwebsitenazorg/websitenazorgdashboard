@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="d-flex" style="min-height: 100vh;">
+@include('layouts.sidebar', ['domain' => $domain])
+<div class="flex-grow-1">
 <div class="container">
     @if(isset($data['error']))
         <div class="alert alert-danger">{{ $data['error'] }}</div>
@@ -42,6 +45,16 @@
                             <td>{{ $data['isValid'] ? trans('messages.yes') : trans('messages.no') }}</td>
                         </tr>
 
+                        <tr>
+                            <th>@lang('messages.php_version')</th>
+                            <td>
+                                @if(is_array($data['phpVersion']))
+                                    {{ implode(', ', $data['phpVersion']) }}
+                                @else
+                                    {{ $data['phpVersion'] != '0' ? $data['phpVersion'] : trans('messages.not_available') }}
+                                @endif
+                            </td>
+                        </tr>
                         @if(isset($data['headers']) && is_array($data['headers']))
                             <tr>
                                 <th>@lang('messages.headers')</th>
@@ -54,20 +67,12 @@
                                 </td>
                             </tr>
                         @endif
-                        <tr>
-                            <th>@lang('messages.php_version')</th>
-                            <td>
-                                @if(is_array($data['phpVersion']))
-                                    {{ implode(', ', $data['phpVersion']) }}
-                                @else
-                                    {{ $data['phpVersion'] != '0' ? $data['phpVersion'] : trans('messages.not_available') }}
-                                @endif
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     @endif
+</div>
+</div>
 </div>
 @endsection

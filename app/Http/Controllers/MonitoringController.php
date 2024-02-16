@@ -58,7 +58,10 @@ class MonitoringController extends Controller
             ];
         }
 
-        return view('monitoring.beveiliging', compact('data'));
+        return view('monitoring.beveiliging', [
+            'data' => $data,
+            'domain' => $domain,
+        ]);
     }
 
 
@@ -110,5 +113,9 @@ class MonitoringController extends Controller
         $securityStatuses['ContentSecurityPolicy'] = empty($contentSecurityPolicy) ? 'Gevaarlijk' : 'Veilig';
 
         return $securityStatuses;
+    }
+
+    public function privacy($domain) {
+        return view('monitoring.privacy', ['domain' => $domain]);
     }
 }
