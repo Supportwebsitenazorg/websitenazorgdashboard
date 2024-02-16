@@ -20,7 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-// Modified to include email verification
 Auth::routes(['verify' => true]);
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard')->middleware('verified');
@@ -31,15 +30,15 @@ Route::post('/domains/assign', [DomainController::class, 'assign'])->name('domai
 Route::post('/organizations/assign', [DomainController::class, 'assignOrganization'])->name('organizations.assign')->middleware(['auth', 'verified', 'can:assign-organizations']);
 
 Route::middleware(['can:is-orgadmin', 'verified'])->group(function () {
-    // Add routes that require the user to be an org admin and have a verified email here
+     // nog niks 
 });
 
 Route::get('/manage', [App\Http\Controllers\ManageController::class, 'index'])
      ->middleware(['auth', 'verified', 'can:access-manage-page'])->name('manage');
 
-Route::get('/monitoring/{domain}', [App\Http\Controllers\MonitoringController::class, 'show'])
+Route::get('/monitoring/{domain}', [App\Http\Controllers\MonitoringController::class, 'beveiliging'])
      ->middleware(['auth', 'verified', 'can:view-monitoring,domain'])
-     ->name('monitoring.show');
+     ->name('monitoring.beveiliging');
 
 
 Route::get('/settings', function () {

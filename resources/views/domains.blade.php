@@ -53,7 +53,7 @@
                                 <ul>
                                 @foreach ($allDomains as $domain)
                                     <li>
-                                        <a href="{{ route('monitoring.show', ['domain' => $domain->domain]) }}">
+                                        <a href="{{ route('monitoring.beveiliging', ['domain' => $domain->domain]) }}">
                                             {{ $domain->domain }}
                                         </a> - @lang('messages.assigned_to') 
                                         @foreach ($domain->users as $user)
@@ -108,7 +108,7 @@
                                 <ul>
                                     @foreach ($allDomains as $domain)
                                         <li>
-                                            <a href="{{ route('monitoring.show', ['domain' => $domain->domain]) }}">
+                                            <a href="{{ route('monitoring.beveiliging', ['domain' => $domain->domain]) }}">
                                                 {{ $domain->domain }}
                                             </a>
                                         </li>

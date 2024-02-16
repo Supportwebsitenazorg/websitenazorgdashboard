@@ -10,7 +10,7 @@ use Carbon\Carbon;
 
 class MonitoringController extends Controller
 {
-    public function show($domain)
+    public function beveiliging($domain)
     {
         $url = $this->startsWithHttp($domain) ? $domain : 'https://' . $domain;
 
@@ -58,7 +58,7 @@ class MonitoringController extends Controller
             ];
         }
 
-        return view('monitoring.show', compact('data'));
+        return view('monitoring.beveiliging', compact('data'));
     }
 
 
