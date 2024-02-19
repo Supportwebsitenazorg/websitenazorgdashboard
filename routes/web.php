@@ -68,3 +68,6 @@ Route::post('/manage/add-user-to-domain', [App\Http\Controllers\ManageController
 Route::get('/monitoring/{domain}/privacy', [App\Http\Controllers\MonitoringController::class, 'privacy'])
      ->middleware(['auth', 'verified', 'can:view-monitoring,domain'])
      ->name('monitoring.privacy');
+
+Route::get('/fetch-sources/{domain}', [MonitoringController::class, 'fetchSources']);
+

@@ -3,7 +3,7 @@
 <div class="d-flex" style="min-height: 100vh;">
 @include('layouts.sidebar', ['domain' => $domain])
 <div class="flex-grow-1">
-<div class="container">
+<div class="container p-5">
     @if(isset($data['error']))
         <div class="alert alert-danger">{{ $data['error'] }}</div>
     @else

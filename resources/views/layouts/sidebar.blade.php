@@ -2,7 +2,7 @@
     $currentUrl = Request::path();
 @endphp
 
-<div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 200px; height: auto;">
+<div class="d-flex flex-column flex-shrink-0 bg-white shadow-sm" style="width: 200px; height: auto;">
     <ul class="nav nav-pills flex-column mb-auto p-2">
         <li class="nav-item">
             <a href="/monitoring/{{ $domain }}" class="nav-link text-secondary {{ $currentUrl == "monitoring/$domain" ? 'active' : '' }}" aria-current="page">
