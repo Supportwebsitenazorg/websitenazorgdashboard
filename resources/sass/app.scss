@@ -133,13 +133,11 @@
 
 .badge-subtle-success {
     background-color: #ccf6e4;
-    opacity: 1; 
     color: #28a745;
 }
 
 .badge-subtle-danger {
-    background-color: #fad7dd; 
-    opacity: 1;
+    background-color: #fad7dd;
     color: #dc3545;
 }
 
@@ -153,13 +151,13 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    margin: 2rem auto;
+    margin: 2rem auto 1rem;
 }
 
 .user-domains-section h3 {
     color: #333333;
     margin-bottom: 1rem;
-    text-align: center; 
+    text-align: center;
 }
 
 .user-domains-section ul {
@@ -168,32 +166,31 @@
 }
 
 .user-domains-section ul li {
-    background: #E9F5FF; 
+    background: #e9f5ff;
     margin-bottom: 0.5rem;
     padding: 0.5rem 1rem;
     border-radius: 4px;
 }
 
 .user-domains-section ul li a {
-    color: #007BFF;
-    text-decoration: none; 
-    display: block; 
-    transition: color 0.3s ease; 
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
 }
 
 .user-domains-section ul li a:hover {
-    color: #0056b3; 
+    color: #0056b3;
 }
 
 .p-no-domains-message {
-    text-align: center; 
-    color: #6c757d; 
-    margin-top: 1rem; 
-
+    text-align: center;
+    color: #6c757d;
+    margin-top: 1rem;
 }
 
 .user-domains-table {
-    background-color: #E9F5FF;
+    background-color: #e9f5ff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -202,50 +199,16 @@
     padding: 0.5rem 1rem;
 }
 
-.accordion-button:not(.collapsed) {
-    color: #007BFF;
-    background-color: #E9F5FF;
-    box-shadow: none;
-}
-
+.accordion-button:not(.collapsed),
 .accordion-button {
-    color: #007BFF;
-    background-color: #ffffff;
+    color: #007bff;
+    background-color: #e9f5ff;
     box-shadow: none;
+    padding: 0.5rem 1rem;
 }
 
 .accordion-header {
-    margin-bottom: 0.5rem;
-    height: 44px;
-}
-
-.form-group label {
-    display: block;
-    color: #333333;
-    margin-bottom: 0.5rem;
-}
-
-.form-control {
-    border-radius: 4px;
-    border: 1px solid #ced4da;
-}
-
-.btn-primary {
-    background-color: #007BFF;
-    border-color: #007BFF;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-}
-
-.user-domains-section {
-    background-color: #ffffff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 1rem;
+    height: 36px !important;
 }
 
 .form-group label {
@@ -278,7 +241,7 @@
 }
 
 #organization_domains {
-    background: #E9F5FF;
+    background: #e9f5ff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     padding: 1rem;
@@ -363,7 +326,7 @@
 
 .collapse-toggle.collapsed {
     border: none;
-    background: #E9F5FF;
+    background: #e9f5ff;
 }
 
 .domains-list,
@@ -382,35 +345,18 @@
     list-style: none;
 }
 
-.removable-user {
-    color: #dc3545;
-    cursor: pointer;
-    margin-left: 0.5rem;
-}
-
-.removable-user:hover {
-    text-decoration: underline;
-}
-
 @media (max-width: 768px) {
     .collapse-toggle {
         font-size: 1rem;
         padding: 0.5rem;
     }
-}
 
-@media (max-width: 768px) {
     .user-domains-collapse-button {
         font-size: 1rem;
     }
+
     .user-domains-item {
         padding: 0.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .user-domains-section {
-        padding: 1rem;
     }
 }
 
@@ -419,12 +365,13 @@
         padding: 0.5rem;
         margin: 0.5rem;
     }
-}
 
-@media (max-width: 768px) {
-    .user-domains-section {
-        margin: 1rem;
-        padding: 1rem;
+    .accordion-button {
+        padding: 0.25rem 0.5rem;
+    }
+
+    .btn-primary {
+        padding: 0.5rem 1rem;
     }
 }
 
@@ -433,8 +380,10 @@
     .user-domains-table {
         padding: 1rem;
     }
-    
-    .accordion-header, .form-group, .btn-primary {
+
+    .accordion-header,
+    .form-group,
+    .btn-primary {
         margin-bottom: 1rem;
     }
 
@@ -444,42 +393,5 @@
 
     .col-md-6 {
         width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .user-domains-section {
-        padding: 0.5rem;
-    }
-
-    .user-domains-table {
-        box-shadow: none;
-    }
-    
-    .accordion-button {
-        padding: 0.5rem 1rem;
-    }
-
-    .accordion-header {
-        margin-bottom: 0.5rem;
-    }
-
-    .form-group {
-        margin-bottom: 0.5rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .user-domains-section {
-        margin: 1rem;
-        padding: 1rem;
-    }
-
-    .accordion-button {
-        padding: 0.25rem 0.5rem;
-    }
-
-    .btn-primary {
-        padding: 0.5rem 1rem;
     }
 }

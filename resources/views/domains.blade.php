@@ -6,7 +6,8 @@
             <div class="col-md-10">
                 @if (Auth::user()->role === 'admin')
                     <div class="user-domains-section mb-4">
-                        <div class="card-header">{{ __('messages.assign_domain') }}</div>
+                        <div class="card-header"><h3>{{ __('messages.assign_domain') }}</h3></div>
+                        <hr>
                         <div class="card-body">
                             <form method="POST" action="{{ route('domains.assign') }}">
                                 @csrf
@@ -27,7 +28,8 @@
                         </div>
                     </div>
                     <div class="user-domains-section mb-4">
-                        <div class="card-header">{{ __('messages.assign_organization') }}</div>
+                        <div class="card-header"><h3>{{ __('messages.assign_organization') }}</h3></div>
+                        <hr>
                         <div class="card-body">
                             <form method="POST" action="{{ route('organizations.assign') }}">
                                 @csrf
@@ -94,7 +96,8 @@
                     @if (Auth::user()->role === 'orgadmin')
                         <div class="user-domains-section">
                             <div class="form-group">
-                                <label for="select_organization">@lang('messages.select_organization')</label>
+                                <label for="select_organization"><h3>@lang('messages.select_organization')</h3></label>
+                                <hr>
                                 <select class="form-control organization-select" id="select_organization">
                                     <option value="">@lang('messages.select_an_organization')</option>
                                     @foreach (Auth::user()->organizations as $organization)
@@ -109,6 +112,7 @@
                     @elseif (Auth::user()->role === 'user')
                         <div class="user-domains-section">
                             <h3>@lang('messages.my_domains')</h3>
+                            <hr>
                             @if (isset($allDomains) && $allDomains->isNotEmpty())
                                 <ul>
                                     @foreach ($allDomains as $domain)

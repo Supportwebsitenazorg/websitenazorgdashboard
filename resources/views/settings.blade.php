@@ -5,7 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="user-domains-section">
-                <div class="card-header">{{ __('messages.profile_information') }}</div>
+                <div class="card-header"><h3>{{ __('messages.profile_information') }}</h3></div>
+                <hr>
                 <div class="card-body">
                     <p><strong>{{ __('messages.name') }}:</strong> {{ Auth::user()->name }}</p>
                     <p><strong>{{ __('messages.email') }}:</strong> {{ Auth::user()->email }}</p>
@@ -25,7 +26,8 @@
             </div>
 
             <div class="user-domains-section mt-4">
-                <div class="card-header">{{ __('messages.remove_account') }}</div>
+                <div class="card-header"><h3>{{ __('messages.remove_account') }}</h3></div>
+                <hr>
                 <div class="card-body">
                     @if(session('error'))
                         <div class="alert alert-danger">{{ session('error') }}</div>
