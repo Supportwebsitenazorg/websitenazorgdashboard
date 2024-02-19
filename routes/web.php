@@ -65,9 +65,7 @@ Route::post('/manage/remove-user-from-domain', [App\Http\Controllers\ManageContr
 Route::post('/manage/add-user-to-domain', [App\Http\Controllers\ManageController::class, 'addUserToDomain'])
      ->middleware(['auth', 'verified', 'can:add-user-domain'])->name('add-user-to-domain');
 
-Route::get('/monitoring/{domain}/privacy', [App\Http\Controllers\MonitoringController::class, 'privacy'])
+Route::get('/monitoring/{domain}/privacy', [App\Http\Controllers\PrivacyController::class, 'privacy'])
      ->middleware(['auth', 'verified', 'can:view-monitoring,domain'])
      ->name('monitoring.privacy');
-
-Route::get('/fetch-sources/{domain}', [MonitoringController::class, 'fetchSources']);
 

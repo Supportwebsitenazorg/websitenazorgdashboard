@@ -114,8 +114,4 @@ class MonitoringController extends Controller
 
         return $securityStatuses;
     }
-
-    public function privacy($domain) {
-        return view('monitoring.privacy', ['domain' => $domain]);
-    }
 }
