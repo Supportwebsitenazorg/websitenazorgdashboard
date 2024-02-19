@@ -5,6 +5,7 @@ use App\Http\Controllers\DomainController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Auth;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,4 +69,8 @@ Route::post('/manage/add-user-to-domain', [App\Http\Controllers\ManageController
 Route::get('/monitoring/{domain}/privacy', [App\Http\Controllers\PrivacyController::class, 'privacy'])
      ->middleware(['auth', 'verified', 'can:view-monitoring,domain'])
      ->name('monitoring.privacy');
+
+Route::get('/monitoring/{domain}/prestaties', [App\Http\Controllers\PrestatiesController::class, 'prestaties'])
+     ->middleware(['auth', 'verified', 'can:view-monitoring,domain'])
+     ->name('monitoring.prestaties');
 
