@@ -212,6 +212,7 @@
 
 .accordion-header {
     margin-bottom: 0.5rem;
+    height: 44px;
 }
 
 .form-group label {
@@ -285,6 +286,122 @@
     padding: 0.5rem;
     border-radius: 4px;
     list-style: none;
+}
+
+.user-domains-heading {
+    margin-bottom: 1rem;
+}
+
+.user-domains-collapse-button {
+    font-size: 1.25rem;
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.user-domains-collapse-button:hover {
+    color: #0056b3;
+}
+
+.user-domains-collapse {
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 0.25rem;
+}
+
+.user-domains-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.user-domains-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.user-domains-item:last-child {
+    border-bottom: none;
+}
+
+.removable-user {
+    display: inline-block;
+    margin-left: 0.5rem;
+    color: #dc3545;
+    cursor: pointer;
+}
+
+.removable-user:hover {
+    text-decoration: underline;
+}
+
+.collapse-header {
+    margin-bottom: 0.5rem;
+}
+
+.collapse-toggle {
+    background: none;
+    border: none;
+    color: #007bff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    text-align: left;
+}
+
+.collapse-toggle.collapsed {
+    border: none;
+    background: #E9F5FF;
+}
+
+.domains-list,
+.organizations-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+.domain-item,
+.organization-item {
+    background: #f8f9fa;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+    list-style: none;
+}
+
+.removable-user {
+    color: #dc3545;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.removable-user:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .collapse-toggle {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-domains-collapse-button {
+        font-size: 1rem;
+    }
+    .user-domains-item {
+        padding: 0.5rem;
+    }
 }
 
 @media (max-width: 768px) {
