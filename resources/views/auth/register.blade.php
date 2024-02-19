@@ -58,8 +58,8 @@
                         </div>
                     </form>
                 </div>
-                <div class="card-footer text-center">
-                    <a class="btn welcome-buttons" href="{{ route('welcome') }}">@lang('messages.already_account')</a>
+                <div class="card-footer text-center">   
+                    <a class="btn welcome-buttons bg-white" href="{{ route('welcome') }}">@lang('messages.already_account')</a>
                 </div>
             </div>
         </div>

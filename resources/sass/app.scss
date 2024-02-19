@@ -1,5 +1,6 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700|Poppins:300,400,500,600,700,800,900&display=swap');
+
 
 // Variables
 @import 'variables';
@@ -15,6 +16,10 @@
 @import '../../public/css/user-rtl.min.css';
 @import '../../public/css/user.css';
 @import '../../public/css/user.min.css';
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
 
 .html, body {
     min-height: 100vh;
@@ -95,4 +100,30 @@
 
 .remove-user-email:hover {
     color: red;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: start; /* Align items to the start of the container */
+    gap: 15px; /* Adjust the gap between the icon and text as needed */
+}
+
+.nav-link.active {
+    color: white !important;
+    background-color: #007bff !important;
+    padding: 0.5rem 1rem; /* Provides padding around the text and icon */
+    border-radius: 0.25rem; /* Optional: Rounds the corners of the active link */
+}
+
+/* This will ensure the entire nav link area is clickable and has padding */
+.nav-item {
+    display: block;
+    width: 100%;
+}
+
+/* Ensure that the <i> element (icon) is centered with the text */
+.nav-link i {
+    min-width: 20px; /* Ensure the icons have enough space */
+    text-align: center; /* Center the icon */
 }

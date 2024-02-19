@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@lang('messages.login_title')</title>
+    <link rel="icon" href="{{ asset('Logo.png') }}">
+    <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -59,11 +61,11 @@
                 </div>
                 <div class="card-footer">
                     @if (Route::has('password.request'))
-                        <a class="btn welcome-buttons" href="{{ route('password.request') }}">
+                        <a class="btn welcome-buttons bg-white" href="{{ route('password.request') }}">
                             @lang('messages.forgot_password')
                         </a>
                     @endif
-                    <a class="btn welcome-buttons" href="{{ route('welcome') }}">@lang('messages.register')</a>
+                    <a class="btn welcome-buttons bg-white" href="{{ route('welcome') }}">@lang('messages.register')</a>
                 </div>
             </div>
         </div>

@@ -30,8 +30,8 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a class="btn welcome-buttons" href="{{ route('login') }}">@lang('messages.login')</a>
-                        <a class="btn welcome-buttons" href="{{ route('register') }}">@lang('messages.register')</a>
+                        <a class="btn welcome-buttons bg-white" href="{{ route('login') }}">@lang('messages.login')</a>
+                        <a class="btn welcome-buttons bg-white" href="{{ route('register') }}">@lang('messages.register')</a>
                     </div>
                 </div>
             </div>
