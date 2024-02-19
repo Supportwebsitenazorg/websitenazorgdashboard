@@ -107,21 +107,23 @@
                         <div id="organization_domains" style="display:none;">
                             <ul id="domains_list"></ul>
                         </div>
-                    @elseif (Auth::user()->role === 'user')
-                            <h3>@lang('messages.my_domains')</h3>
-                            @if (isset($allDomains) && $allDomains->isNotEmpty())
-                                <ul>
-                                    @foreach ($allDomains as $domain)
-                                        <li>
-                                            <a href="{{ route('monitoring.beveiliging', ['domain' => $domain->domain]) }}">
-                                                {{ $domain->domain }}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            @else
-                                <p>@lang('messages.no_domains_added')</p>
-                            @endif
+                        @elseif (Auth::user()->role === 'user')
+    <div class="user-domains-section">
+        <h3>@lang('messages.my_domains')</h3>
+        @if (isset($allDomains) && $allDomains->isNotEmpty())
+            <ul>
+                @foreach ($allDomains as $domain)
+                    <li>
+                        <a href="{{ route('monitoring.beveiliging', ['domain' => $domain->domain]) }}">
+                            {{ $domain->domain }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        @else
+            <p class="p-no-domains-message">@lang('messages.no_domains_added')</p>
+        @endif
+    </div>
                         @endif
                     @endif
                 </div>

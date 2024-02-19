@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="d-flex" style="min-height: 100vh;">
 @include('layouts.sidebar', ['domain' => $domain])
@@ -9,15 +8,15 @@
         <div class="alert alert-danger">{{ $data['error'] }}</div>
     @else
         <div class="card">
-            <div class="card-header">@lang('messages.monitoring_dashboard_general', ['domain' => $data['domain']])</div>
-            <div class="card-body">
+            <div class="card-header d-flex flex-between-center bg-light py-2">@lang('messages.monitoring_dashboard_security', ['domain' => $data['domain']])</div>
+            <div class="card-body py-0">
                 <table class="table">
-                    <tbody>
+                    <tbody>   
                         @foreach($data['securityStatuses'] as $check => $status)
                             <tr>
                                 <th>@lang('messages.' . $check)</th>
-                                <td>
-                                    <span class="badge {{ $status === 'Veilig' ? 'badge bg-success' : ($status === 'Risico' ? 'badge bg-warning' : 'badge bg-danger') }}">
+                                <td class="align-right">
+                                    <span class="badge {{ $status === 'Veilig' ? 'badge fs--1 w-25 badge-subtle-success' : ($status === 'Risico' ? 'badge bg-warning' : 'badge fs--1 w-25 badge-subtle-danger') }}">
                                         @lang('messages.' . $status)
                                     </span>
                                 </td>
@@ -26,10 +25,11 @@
                     </tbody>
                 </table>
             </div>
+        <div class="card-footer bg-light py-2"></div>
         </div>
         <div class="card mt-5">
-            <div class="card-header">@lang('messages.monitoring_dashboard_specific', ['domain' => $data['domain']])</div>
-            <div class="card-body">
+            <div class="card-header d-flex flex-between-center bg-light py-2">@lang('messages.monitoring_dashboard_security_specific', ['domain' => $data['domain']])</div>
+            <div class="card-body py-0">
                 <table class="table">
                     <tbody>
                         <tr>
@@ -70,6 +70,7 @@
                     </tbody>
                 </table>
             </div>
+            <div class="card-footer bg-light py-2"></div>
         </div>
     @endif
 </div>
