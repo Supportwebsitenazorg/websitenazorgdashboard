@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="user-domains-section">
                 <div class="card-header">{{ __('messages.profile_information') }}</div>
                 <div class="card-body">
                     <p><strong>{{ __('messages.name') }}:</strong> {{ Auth::user()->name }}</p>
@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-            <div class="card mt-4">
+            <div class="user-domains-section mt-4">
                 <div class="card-header">{{ __('messages.remove_account') }}</div>
                 <div class="card-body">
                     @if(session('error'))
