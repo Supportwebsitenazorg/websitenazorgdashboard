@@ -128,4 +128,6 @@ return [
     'version' => 'Versie',
     'fetch_time' => 'Ophaaltijd',
     'analysis_time' => 'Analysetijd',
+    'Mobile' => 'Mobiel',
+    'Desktop' => 'Desktop',
 ];

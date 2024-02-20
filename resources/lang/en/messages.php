@@ -127,4 +127,6 @@ return [
     'version' => 'Version',
     'fetch_time' => 'Fetch time',
     'analysis_time' => 'Analysis time',
+    'Mobile' => 'Mobile',
+    'Desktop' => 'Desktop',
 ];
