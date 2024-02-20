@@ -125,4 +125,7 @@ return [
     'diagnostics' => 'Diagnostiek',
     'passed_audits' => 'Geslaagde audits',
     'additional_information' => 'Extra informatie',
+    'version' => 'Versie',
+    'fetch_time' => 'Ophaaltijd',
+    'analysis_time' => 'Analysetijd',
 ];

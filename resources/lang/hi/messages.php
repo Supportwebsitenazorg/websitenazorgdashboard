@@ -124,4 +124,7 @@ return [
     'diagnostics' => 'Diagnostics',
     'passed_audits' => 'Passed Audits',
     'additional_information' => 'Additional Information',
+    'version' => 'Version',
+    'fetch_time' => 'Fetch Time',
+    'analysis_time' => 'Analysis Time',
 ];
