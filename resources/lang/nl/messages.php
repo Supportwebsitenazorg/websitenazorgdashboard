@@ -119,4 +119,10 @@ return [
     'verify_email_line' => 'Klik op de knop hieronder om uw e-mailadres te verifiëren.',
     'verify_email_action' => 'Verifieer E-mailadres',
     'verify_email_no_action' => 'Als u geen account heeft aangemaakt, is geen verdere actie vereist.',
+    'performance_score' => 'Prestatiescore',
+    'lab_data' => 'Labgegevens',
+    'opportunities' => 'Kansen',
+    'diagnostics' => 'Diagnostiek',
+    'passed_audits' => 'Geslaagde audits',
+    'additional_information' => 'Extra informatie',
 ];

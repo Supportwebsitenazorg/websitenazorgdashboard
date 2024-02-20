@@ -1,11 +1,6 @@
-// Fonts
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700|Poppins:300,400,500,600,700,800,900&display=swap');
 
-
-// Variables
 @import 'variables';
-
-// Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
 @import '../../public/css/theme-rtl.css';
@@ -91,9 +86,9 @@
     word-wrap: break-word;
     word-break: break-all; 
     white-space: normal;
-  }
+}
 
-  .remove-user-email {
+.remove-user-email {
     cursor: pointer;
     color: blue;
     text-decoration: none;
@@ -343,6 +338,90 @@
     margin-bottom: 0.5rem;
     border-radius: 0.25rem;
     list-style: none;
+}
+
+.performance-score, .lab-data, .opportunities, .diagnostics, .passed-audits, .additional-information {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+
+.performance-score h2, 
+.lab-data h2, 
+.opportunities h2, 
+.diagnostics h2, 
+.passed-audits h2, 
+.additional-information h2 {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 8px 8px 0 0;
+    margin: -1rem -1rem 2rem -1rem;
+}
+.score-value {
+    font-size: 3rem;
+    margin: 0;
+    color: white;
+}
+
+.score-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.score-circle.bad {
+    background-color: #dc3545;
+    color: white;
+}
+
+.score-circle.average {
+    background-color: #ffc107;
+    color: white;
+}
+
+.score-circle.good {
+    background-color: #28a745;
+    color: white;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+h2 {
+    font-weight: 600;
+    color: #333;
+}
+
+h3 {
+    font-weight: 500;
+    color: #007bff;
+}
+
+p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.btn-custom {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 0.25rem;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
 }
 
 @media (max-width: 768px) {

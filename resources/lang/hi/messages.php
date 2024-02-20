@@ -118,4 +118,10 @@ return [
     'verify_email_line' => 'Kripya neeche diye gaye button par click karein apne email pate ka satyapan karne ke liye.',
     'verify_email_action' => 'Email Pata Satyapan Karein',
     'verify_email_no_action' => 'Yadi aapne khaata nahi banaya hai, toh kisi prakaar ki aur kriya ki aavashyakta nahi hai.',
+    'performance_score' => 'Performance score',
+    'lab_data' => 'Lab Data',
+    'opportunities' => 'Opportunities',
+    'diagnostics' => 'Diagnostics',
+    'passed_audits' => 'Passed Audits',
+    'additional_information' => 'Additional Information',
 ];
