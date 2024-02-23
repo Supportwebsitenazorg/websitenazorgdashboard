@@ -6,6 +6,7 @@ use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Auth;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -73,4 +74,8 @@ Route::get('/monitoring/{domain}/privacy', [App\Http\Controllers\PrivacyControll
 Route::get('/monitoring/{domain}/prestaties', [App\Http\Controllers\PrestatiesController::class, 'prestaties'])
      ->middleware(['auth', 'verified', 'can:view-monitoring,domain'])
      ->name('monitoring.prestaties');
+
+Route::get('/monitoring/{domain}/duurzaamheid', [App\Http\Controllers\DuurzaamheidController::class, 'duurzaamheid'])
+     ->middleware(['auth', 'verified', 'can:view-monitoring,domain'])
+     ->name('monitoring.duurzaamheid');
 
