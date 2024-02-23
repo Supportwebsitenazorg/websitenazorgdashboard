@@ -16,7 +16,7 @@
                             <tr>
                                 <th>@lang('messages.' . $check)</th>
                                 <td class="align-right">
-                                    <span class="badge {{ $status === 'Veilig' ? 'badge fs--1 w-25 badge-subtle-success' : ($status === 'Risico' ? 'badge bg-warning' : 'badge fs--1 w-25 badge-subtle-danger') }}">
+                                    <span class="badge {{ $status === 'Veilig' ? 'badge fs--1 w-25 badge-subtle-success' : ($status === 'Risico' ? 'badge fs--1 w-25 badge-subtle-warning' : 'badge fs--1 w-25 badge-subtle-danger') }}">
                                         @lang('messages.' . $status)
                                     </span>
                                 </td>

@@ -130,4 +130,5 @@ return [
     'analysis_time' => 'Analysetijd',
     'Mobile' => 'Mobiel',
     'Desktop' => 'Desktop',
+    'no_insights_found' => 'Geen inzichten gevonden.',
 ];

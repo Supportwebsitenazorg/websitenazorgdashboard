@@ -129,4 +129,5 @@ return [
     'analysis_time' => 'Analysis time',
     'Mobile' => 'Mobile',
     'Desktop' => 'Desktop',
+    'no_insights_found' => 'No insights found.',
 ];
