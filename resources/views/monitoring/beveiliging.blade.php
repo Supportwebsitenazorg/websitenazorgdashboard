@@ -7,15 +7,14 @@
     @if(isset($data['error']))
         <div class="alert alert-danger">{{ $data['error'] }}</div>
     @else
-        <div class="card">
-            <div class="card-header d-flex flex-between-center bg-light py-2">@lang('messages.monitoring_dashboard_security', ['domain' => $data['domain']])</div>
-            <div class="card-body py-0">
+        <div class="performance-score">
+        <h2>@lang('messages.monitoring_dashboard_security', ['domain' => $data['domain']])</h2>
                 <table class="table">
                     <tbody>   
                         @foreach($data['securityStatuses'] as $check => $status)
                             <tr>
                                 <th>@lang('messages.' . $check)</th>
-                                <td class="align-right">
+                                <td>
                                     <span class="badge {{ $status === 'Veilig' ? 'badge fs--1 w-25 badge-subtle-success' : ($status === 'Risico' ? 'badge fs--1 w-25 badge-subtle-warning' : 'badge fs--1 w-25 badge-subtle-danger') }}">
                                         @lang('messages.' . $status)
                                     </span>
@@ -24,11 +23,9 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
-        <div class="card-footer bg-light py-2"></div>
         </div>
-        <div class="card mt-5">
-            <div class="card-header d-flex flex-between-center bg-light py-2">@lang('messages.monitoring_dashboard_security_specific', ['domain' => $data['domain']])</div>
+        <div class="performance-score">
+            <h2>@lang('messages.monitoring_dashboard_security_specific', ['domain' => $data['domain']])</h2>
             <div class="card-body py-0">
                 <table class="table">
                     <tbody>
