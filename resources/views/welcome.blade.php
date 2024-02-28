@@ -17,7 +17,7 @@
                 <div class="card shadow-lg">
                     <div class="card-body p-5">
                         <div class="text-center mb-4">
-                            <img src="{{ asset('/Logo3.jpg') }}" alt="@lang('messages.title')">
+                            <img src="{{ asset('/Logo3.png') }}" alt="@lang('messages.title')">
                             <h1 class="h3 mb-3 welcome-text pt-5">@lang('messages.welcome')</h1>
                             <h5>@lang('messages.login_message')</h5>
                             <div class="language-switcher mb-3 mt-4">

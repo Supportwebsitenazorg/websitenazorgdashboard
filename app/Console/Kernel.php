@@ -15,6 +15,10 @@ class Kernel extends ConsoleKernel
         $schedule->command('fetch:pagespeed')
                  ->timezone('Europe/Amsterdam')
                  ->dailyAt('03:00');
+                 
+        $schedule->command('fetch:carbonfootprint')
+                 ->timezone('Europe/Amsterdam')
+                 ->monthlyOn(1, '03:00');
     }
     
 

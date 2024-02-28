@@ -1,7 +1,6 @@
 <?php
 
 // php artisan fetch:pagespeed to use this command single handedly :)
-// cd 'XX\XX\XX'; php artisan schedule:run to use this command with the scheduler :)
 
 
 namespace App\Console\Commands;

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\DuurzaamheidController;
 
 
 
@@ -75,7 +76,6 @@ Route::get('/monitoring/{domain}/prestaties', [App\Http\Controllers\PrestatiesCo
      ->middleware(['auth', 'verified', 'can:view-monitoring,domain'])
      ->name('monitoring.prestaties');
 
-Route::get('/monitoring/{domain}/duurzaamheid', [App\Http\Controllers\DuurzaamheidController::class, 'duurzaamheid'])
+Route::get('/monitoring/{domain}/duurzaamheid', [DuurzaamheidController::class, 'duurzaamheid'])
      ->middleware(['auth', 'verified', 'can:view-monitoring,domain'])
      ->name('monitoring.duurzaamheid');
-
