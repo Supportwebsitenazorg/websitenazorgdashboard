@@ -13,44 +13,35 @@ class FetchCarbonFootprint extends Command
     protected $description = 'Fetches carbon footprint data for all domains and stores them in the database';
 
     public function handle()
-{
-    ini_set('memory_limit', '256M');
-    
-    $allDomains = Domain::all()->pluck('domain');
+    {
+        ini_set('memory_limit', '256M');
+        
+        $domains = Domain::all()->pluck('domain');
+        $client = new Client(['verify' => false]);
 
-    $startIndex = $allDomains->search('rudolphiedesign.nl');
-    if ($startIndex === false) {
-        $this->error("Domain not found.");
-        return;
-    }
+        foreach ($domains as $domain) {
+            $this->info("Fetching carbon data for domain: {$domain}");
 
-    $domains = $allDomains->slice($startIndex);
-    $client = new Client(['verify' => false]);
+            $encodedUrl = urlencode("https://{$domain}");
+            $url = "https://api.websitecarbon.com/site?url={$encodedUrl}";
 
-    foreach ($domains as $domain) {
-        $this->info("Fetching carbon data for domain: {$domain}");
+            try {
+                $response = $client->request('GET', $url);
+                $data = $response->getBody()->getContents();
 
-        $encodedUrl = urlencode("https://{$domain}");
-        $url = "https://api.websitecarbon.com/site?url={$encodedUrl}";
+                CarbonData::updateOrCreate(
+                    ['domain' => $domain],
+                    ['data' => $data]
+                );
 
-        try {
-            $response = $client->request('GET', $url);
-            $data = $response->getBody()->getContents();
+                $this->info("Successfully fetched carbon data for domain: {$domain}");
 
-            CarbonData::updateOrCreate(
-                ['domain' => $domain],
-                ['data' => $data]
-            );
-
-            $this->info("Successfully fetched carbon data for domain: {$domain}");
-
-            sleep(5);
-        } catch (\Exception $e) {
-            $this->error("Failed for domain {$domain}: " . $e->getMessage());
+                sleep(5);
+            } catch (\Exception $e) {
+                $this->error("Failed for domain {$domain}: " . $e->getMessage());
+            }
         }
+
+        $this->info('All done!');
     }
-
-    $this->info('All done!');
-}
-
 }

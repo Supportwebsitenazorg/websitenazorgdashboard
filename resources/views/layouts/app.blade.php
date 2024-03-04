@@ -69,6 +69,7 @@
 </nav>
         <main class="py-0">
             @yield('content')
+            @yield('scripts')
         </main>
     </div>
     <script src="{{ asset('resources/js/app.js') }}"></script>

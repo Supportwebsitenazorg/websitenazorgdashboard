@@ -26,10 +26,6 @@
     background-color: #edf2f9;
 }
 
-.custombgcolor2 {
-    background-image: url('/bgwelcome.png');
-}
-
 .card-body-welcome {
     height: 400px;
 }
@@ -370,14 +366,14 @@
     margin: -1rem -1rem 1rem -1rem;
 }
 .score-value {
-    font-size: 3rem;
+    font-size: 2rem;
     margin: 0;
     color: white;
 }
 
 .score-circle {
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     display: flex;
     justify-content: center;

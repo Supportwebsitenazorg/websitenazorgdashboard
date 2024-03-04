@@ -119,6 +119,7 @@ return [
     'verify_email_action' => 'Verify Email Address',
     'verify_email_no_action' => 'If you did not create an account, no further action is required.',
     'performance_score' => 'Performance score',
+    'latest_performance_score ' => 'Latest performance score',
     'lab_data' => 'Lab Data',
     'opportunities' => 'Opportunities',
     'diagnostics' => 'Diagnostics',

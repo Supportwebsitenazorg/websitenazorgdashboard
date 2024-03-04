@@ -119,6 +119,7 @@ return [
     'verify_email_action' => 'Email Pata Satyapan Karein',
     'verify_email_no_action' => 'Yadi aapne khaata nahi banaya hai, toh kisi prakaar ki aur kriya ki aavashyakta nahi hai.',
     'performance_score' => 'Pradarshan Score',
+    'latest_performance_score' => 'Naye Pradarshan Score',
     'lab_data' => 'Lab Data',
     'opportunities' => 'Avsar',
     'diagnostics' => 'Diagnostics',
