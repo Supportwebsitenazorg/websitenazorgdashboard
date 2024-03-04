@@ -86,8 +86,8 @@ class MonitoringController extends Controller
         $hsts = $headers['Strict-Transport-Security'] ?? null;
         $securityStatuses['StrictTransportSecurity'] = empty($hsts) ? 'Gevaarlijk' : 'Veilig';
 
-        $referrerPolicyString = is_array($referrerPolicy) ? reset($referrerPolicy) : $referrerPolicy;
-        $securityStatuses['ReferrerPolicy'] = in_array(strtolower($referrerPolicyString), [
+        $referrerPolicy = $headers['Referrer-Policy'] ?? '';
+        $securityStatuses['ReferrerPolicy'] = in_array(strtolower($referrerPolicy), [
             'no-referrer',
             'no-referrer-when-downgrade',
             'same-origin',
