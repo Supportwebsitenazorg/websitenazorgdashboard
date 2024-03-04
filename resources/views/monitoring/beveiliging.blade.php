@@ -13,8 +13,8 @@
                     <tbody>   
                         @foreach($data['securityStatuses'] as $check => $status)
                             <tr>
-                                <th>@lang('messages.' . $check)</th>
-                                <td>
+                                <th class="bg-transparent">@lang('messages.' . $check)</th>
+                                <td class="bg-transparent">
                                     <span class="badge {{ $status === 'Veilig' ? 'badge fs--1 w-25 badge-subtle-success' : ($status === 'Risico' ? 'badge fs--1 w-25 badge-subtle-warning' : 'badge fs--1 w-25 badge-subtle-danger') }}">
                                         @lang('messages.' . $status)
                                     </span>
@@ -30,21 +30,21 @@
                 <table class="table">
                     <tbody>
                         <tr>
-                            <th>@lang('messages.issuer')</th>
-                            <td>{{ $data['issuer'] }}</td>
+                            <th class="bg-transparent">@lang('messages.issuer')</th>
+                            <td class="bg-transparent">{{ $data['issuer'] }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('messages.expiration_date')</th>
-                            <td>{{ $data['expirationDate']->toDateString() }}</td>
+                            <th class="bg-transparent">@lang('messages.expiration_date')</th>
+                            <td class="bg-transparent">{{ $data['expirationDate']->toDateString() }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('messages.is_valid')</th>
-                            <td>{{ $data['isValid'] ? trans('messages.yes') : trans('messages.no') }}</td>
+                            <th class="bg-transparent">@lang('messages.is_valid')</th>
+                            <td class="bg-transparent">{{ $data['isValid'] ? trans('messages.yes') : trans('messages.no') }}</td>
                         </tr>
 
                         <tr>
-                            <th>@lang('messages.php_version')</th>
-                            <td>
+                            <th class="bg-transparent">@lang('messages.php_version')</th>
+                            <td class="bg-transparent">
                                 @if(is_array($data['phpVersion']))
                                     {{ implode(', ', $data['phpVersion']) }}
                                 @else
@@ -54,8 +54,8 @@
                         </tr>
                         @if(isset($data['headers']) && is_array($data['headers']))
                             <tr>
-                                <th>@lang('messages.headers')</th>
-                                <td class="headers-container">
+                                <th class="bg-transparent">@lang('messages.headers')</th>
+                                <td class="bg-transparent headers-container">
                                     <ul>
                                         @foreach($data['headers'] as $headerName => $headerValue)
                                             <li>{{ $headerName }}:</strong> {{ is_array($headerValue) ? implode(', ', $headerValue) : $headerValue }}</li>
