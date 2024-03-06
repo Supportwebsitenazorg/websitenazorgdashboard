@@ -352,6 +352,10 @@
     margin-bottom: 2rem;
 }
 
+.charts-container {
+    padding-bottom: 3%;
+}
+
 
 .performance-score h2, 
 .lab-data h2, 
@@ -379,21 +383,7 @@
     justify-content: center;
     align-items: center;
     margin: auto;
-}
-
-.score-circle.bad {
-    background-color: #dc3545;
-    color: white;
-}
-
-.score-circle.average {
-    background-color: #ffc107;
-    color: white;
-}
-
-.score-circle.good {
-    background-color: #28a745;
-    color: white;
+    background: #007bff;
 }
 
 

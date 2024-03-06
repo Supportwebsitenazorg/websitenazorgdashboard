@@ -67,7 +67,6 @@
                     </tbody>
                 </table>
             </div>
-            <div class="card-footer bg-light py-2"></div>
         </div>
     @endif
 </div>

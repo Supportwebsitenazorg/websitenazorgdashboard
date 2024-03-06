@@ -18,6 +18,7 @@ class FetchCarbonFootprint extends Command
         
         $domains = Domain::all()->pluck('domain');
         $client = new Client(['verify' => false]);
+        $sleepSeconds = 3;
 
         foreach ($domains as $domain) {
             $this->info("Fetching carbon data for domain: {$domain}");
@@ -27,6 +28,7 @@ class FetchCarbonFootprint extends Command
 
             try {
                 $response = $client->request('GET', $url);
+                sleep($sleepSeconds);
                 $data = $response->getBody()->getContents();
 
                 CarbonData::updateOrCreate(
@@ -39,6 +41,8 @@ class FetchCarbonFootprint extends Command
                 sleep(5);
             } catch (\Exception $e) {
                 $this->error("Failed for domain {$domain}: " . $e->getMessage());
+                $this->info('waiting 30min');
+                sleep(1800);
             }
         }
 
