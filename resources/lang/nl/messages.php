@@ -75,7 +75,7 @@ return [
     'yes' => 'Ja',
     'no' => 'Nee',
     'headers' => 'Headers',
-    'php_version' => 'PHP-versie',
+    'php_version' => 'Aangedreven door',
     'not_available' => 'Niet beschikbaar',
     'organization' => 'Organisatie',
     'domain' => 'Domein',

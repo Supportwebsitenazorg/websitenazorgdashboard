@@ -74,7 +74,7 @@ return [
     'yes' => 'Yes',
     'no' => 'No',
     'headers' => 'Headers',
-    'php_version' => 'PHP version',
+    'php_version' => 'Powered by',
     'not_available' => 'Not available',
     'organization' => 'Organization',
     'domain' => 'Domain',

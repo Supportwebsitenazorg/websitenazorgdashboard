@@ -74,7 +74,7 @@ return [
     'yes' => 'Haan',
     'no' => 'Nahi',
     'headers' => 'Headers',
-    'php_version' => 'PHP version',
+    'php_version' => 'Dwara sanchalit',
     'not_available' => 'Maujood nahi hai',
     'organization' => 'Sangathan',
     'domain' => 'Domain',
