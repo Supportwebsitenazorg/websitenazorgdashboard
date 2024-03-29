@@ -73,5 +73,8 @@
         </main>
     </div>
     <script src="{{ asset('resources/js/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.0.2"></script>
+
 </body>
 </html>
