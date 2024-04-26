@@ -146,4 +146,10 @@ return [
     'cups_of_tea' => 'cups of tea',
     'Or_enough_electricity_to_drive_an_electric_car' => 'Or enough electricity to drive',
     'to_drive' => 'on a electric car',
+    'free_from_wellknown_trackers' => 'Free from known trackers.',
+    'Cookie' => 'Cookie',
+    'free_from_wellknown_cookies' => 'Free from known cookies.',
+    'privacy_details' => 'Privacy Details',
+    'third_pary_services' => 'Third Party Services',
+    'Cookies' => 'Cookies',
 ];

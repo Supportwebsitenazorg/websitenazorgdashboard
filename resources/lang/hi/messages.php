@@ -146,4 +146,10 @@ return [
     'cups_of_tea' => 'cāy ke kapa',
     'Or_enough_electricity_to_drive_an_electric_car' => 'yā ek vidyut car ko cālanā ke lie paryāpt vidyut',
     'to_drive' => 'cālanā',
+    'free_from_wellknown_trackers' => 'Prasiddh trackers se mukt',
+    'Cookie' => 'Cookie',
+    'free_from_wellknown_cookies' => 'Prasiddh kukiyo se mukt',
+    'privacy_details' => 'Gopniyata vivaran',
+    'third_pary_services' => 'Tritiya-paksh sevaye',
+    'Cookies' => 'Cookies',
 ];

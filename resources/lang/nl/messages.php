@@ -147,5 +147,10 @@ return [
     'cups_of_tea' => 'kopjes thee',
     'Or_enough_electricity_to_drive_an_electric_car' => 'Of genoeg elektriciteit om een elektrische auto',
     'to_drive' => 'te rijden',
-
+    'free_from_wellknown_trackers' => 'Vrij van bekende trackers.',
+    'Cookie' => 'Cookie',
+    'free_from_wellknown_cookies' => 'Vrij van bekende cookies.',
+    'privacy_details' => 'Privacy Details',
+    'third_pary_services' => 'Diensten van derden',
+    'Cookies' => 'Cookies',
 ];
