@@ -10,7 +10,6 @@ use GuzzleHttp\Client;
 class FetchPageSpeed extends Command
 {
     protected $signature = 'fetch:pagespeed';
-    protected $description = 'Fetches PageSpeed insights for all domains and stores them directly into the PageSpeedInsightHistory table';
 
     public function handle()
     {
