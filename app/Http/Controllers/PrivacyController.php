@@ -44,7 +44,6 @@ class PrivacyController extends Controller
                 'fonts.googleapis.com' => 'Google Fonts',
                 'fonts.gstatic.com' => 'Google GStatic',
                 'google.com/recaptcha' => 'Google reCAPTCHA'
-
             ];
                        
 
